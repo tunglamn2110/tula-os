@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula | Tet 2026 Lookbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', // Giữ màu xanh đậm chuyên nghiệp
+                        accent: '#ef4444',  // Đổi accent sang Đỏ (Red-500) cho có không khí Tết
+                        secondary: '#64748b',
+                        tet: '#fef2f2',     // Nền đỏ nhạt
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Ẩn input file mặc định */
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-2xl font-bold text-primary tracking-tight">Tula<span class="text-accent">.Style</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#wardrobe" class="text-sm font-medium text-slate-600 hover:text-accent transition-colors">Lên Đồ</a>
+                    <a href="#moodboard" class="text-sm font-medium text-slate-600 hover:text-accent transition-colors">Moodboard</a>
+                    <div class="px-4 py-1.5 bg-red-50 text-accent text-xs font-bold rounded-full border border-red-100">
+                        TET HOLIDAY 2026
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 pb-20">
+        
+        <section class="max-w-6xl mx-auto px-4 py-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-4">
+                Tet 2026 <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Wardrobe Planner</span>
+            </h1>
+            <p class="text-secondary max-w-xl mx-auto">
+                Lên lịch outfit cho những ngày Tết. Mặc đẹp, chỉn chu, gọn gàng.
+            </p>
+        </section>
+
+        <section id="wardrobe" class="max-w-6xl mx-auto px-4">
+            
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button onclick="switchDay('day29')" class="tab-btn active px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm border border-transparent" id="btn-day29">
+                    29 Tết
+                </button>
+                <button onclick="switchDay('day1')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day1">
+                    Mùng 1
+                </button>
+                <button onclick="switchDay('day2')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day2">
+                    Mùng 2
+                </button>
+                <button onclick="switchDay('day3')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day3">
+                    Mùng 3
+                </button>
+                <button onclick="switchDay('day4')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day4">
+                    Mùng 4
+                </button>
+            </div>
+
+            <div id="day-content" class="fade-in">
+                </div>
+
+        </section>
+
+        <section id="moodboard" class="max-w-6xl mx-auto px-4 mt-24 pt-10 border-t border-slate-200">
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-primary">Moodboard & Vibe</h2>
+                    <p class="text-secondary text-sm mt-1">Cảm hứng phối đồ & màu sắc chủ đạo.</p>
+                </div>
+                <label class="cursor-pointer flex items-center gap-2 text-sm font-medium text-accent hover:text-red-600 transition-colors">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    Thêm ảnh Mood
+                    <input type="file" onchange="addToMoodboard(this)" accept="image/*">
+                </label>
+            </div>
+
+            <div id="moodboard-grid" class="columns-2 md:columns-3 gap-6 space-y-6">
+                <div class="break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative">
+                    <img src="https://images.unsplash.com/photo-1488161628813-99c974c76949?q=80&w=1000&auto=format&fit=crop" class="w-full">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative">
+                    <img src="https://images.unsplash.com/photo-1617137968427-b5742727b855?q=80&w=1000&auto=format&fit=crop" class="w-full">
+                </div>
+                 <div class="break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative">
+                    <img src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?q=80&w=1000&auto=format&fit=crop" class="w-full">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-400 mt-12">
+        <p>Designed by Elias for Tula © 2026</p>
+    </footer>
+<script>
+        // Khởi tạo icon
+        lucide.createIcons();
+
+        // --- CẤU HÌNH DỮ LIỆU ---
+        const daysData = {
+            day29: { title: "29 Tết - Tất Niên", subtitle: "Comfortable & Casual - Cà phê, dọn nhà, ăn tất niên.", note: "Tone: Beige / Brown / White" },
+            day1: { title: "Mùng 1 - Khai Xuân", subtitle: "Formal & Traditional - Chúc tết gia đình, họ hàng.", note: "Tone: Red / Navy / Black" },
+            day2: { title: "Mùng 2 - Du Xuân", subtitle: "Smart Casual - Đi chơi với bạn bè, chụp ảnh.", note: "Tone: Pastel / Blue / Grey" },
+            day3: { title: "Mùng 3 - Hóa Vàng", subtitle: "Streetwear / Edgy - Thoải mái, năng động.", note: "Tone: All Black / Denim" },
+            day4: { title: "Mùng 4 - Xả Hơi", subtitle: "Sporty / Relaxed - Gym nhẹ, cafe chill.", note: "Tone: Sporty" }
+        };
+
+        // --- HÀM HỖ TRỢ STORAGE ---
+        function saveToStorage(key, value) {
+            try {
+                localStorage.setItem(key, value);
+            } catch (e) {
+                alert("Ouch! Bộ nhớ trình duyệt đầy rồi Tula ơi. Xóa bớt ảnh cũ hoặc dùng ảnh nhẹ hơn nhé!");
+            }
+        }
+        function getFromStorage(key) { return localStorage.getItem(key); }
+        function removeFromStorage(key) { localStorage.removeItem(key); }
+
+        // --- PHẦN 1: LOGIC LÊN ĐỒ (WARDROBE) ---
+        function renderDay(dayKey) {
+            const data = daysData[dayKey];
+            const container = document.getElementById('day-content');
+            
+            // Render khung HTML
+            container.innerHTML = `
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl shadow-slate-200/50 fade-in">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-6 border-b border-slate-100">
+                        <div>
+                            <h2 class="text-2xl font-bold text-primary">${data.title}</h2>
+                            <p class="text-slate-500 mt-1">${data.subtitle}</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 px-4 py-2 bg-slate-50 rounded-lg text-sm font-semibold text-secondary border border-slate-200">
+                            🎨 ${data.note}
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-slate-700 flex items-center gap-2"><i data-lucide="shirt" class="w-4 h-4 text-accent"></i> Upper Body</h3>
+                            ${renderUploadCard(dayKey + '_top', 'Áo ngoài / Jacket', 'Chưa chọn ảnh')}
+                            ${renderUploadCard(dayKey + '_inner', 'Áo trong / T-shirt', 'Chưa chọn ảnh')}
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-slate-700 flex items-center gap-2"><i data-lucide="move-vertical" class="w-4 h-4 text-accent"></i> Lower Body</h3>
+                            ${renderUploadCard(dayKey + '_bottom', 'Quần / Trousers', 'Chưa chọn ảnh')}
+                            ${renderUploadCard(dayKey + '_shoes', 'Giày / Shoes', 'Chưa chọn ảnh')}
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-slate-700 flex items-center gap-2"><i data-lucide="watch" class="w-4 h-4 text-accent"></i> Accessories</h3>
+                            ${renderUploadCard(dayKey + '_acc', 'Phụ kiện chính', 'Đồng hồ, Kính, Túi...')}
+                             <div class="bg-slate-50 rounded-xl p-5 border border-slate-100 h-full">
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Checklist ra đường</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600">Nước hoa / Sáp</span></li>
+                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600">Ví & Giấy tờ</span></li>
+                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600">Sạc dự phòng</span></li>
+                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600 font-bold">Lì xì</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            lucide.createIcons();
+
+            // Load ảnh đã lưu
+            ['_top', '_inner', '_bottom', '_shoes', '_acc'].forEach(suffix => {
+                const id = dayKey + suffix;
+                const savedImg = getFromStorage(id);
+                if(savedImg) showImage(id, savedImg);
+            });
+        }
+
+        function renderUploadCard(id, title, sub) {
+            return `
+            <div class="group relative">
+                <label for="file-${id}" class="block cursor-pointer">
+                    <div class="aspect-[3/4] rounded-2xl bg-slate-100 border-2 border-dashed border-slate-300 hover:border-accent hover:bg-blue-50 transition-all flex flex-col items-center justify-center overflow-hidden relative" id="preview-${id}">
+                        <div class="text-center p-4" id="placeholder-${id}">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm mx-auto mb-3 text-slate-400 group-hover:text-accent group-hover:scale-110 transition-all"><i data-lucide="image-plus" class="w-5 h-5"></i></div>
+                            <span class="text-sm font-semibold text-slate-600 block">${title}</span>
+                            <span class="text-xs text-slate-400 mt-1">${sub}</span>
+                        </div>
+                        <img id="img-${id}" class="absolute inset-0 w-full h-full object-cover hidden" />
+                    </div>
+                </label>
+                <input type="file" id="file-${id}" onchange="handleWardrobeUpload(this, '${id}')" accept="image/*" class="hidden">
+                <button onclick="removeWardrobeImage('${id}')" id="btn-remove-${id}" class="hidden absolute top-2 right-2 p-1 bg-white/90 rounded-full text-red-500 hover:bg-red-50 shadow-sm z-10 hover:scale-110 transition-transform"><i data-lucide="x" class="w-3 h-3"></i></button>
+            </div>`;
+        }
+
+        function handleWardrobeUpload(input, id) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    showImage(id, e.target.result);
+                    saveToStorage(id, e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeWardrobeImage(id) {
+            const img = document.getElementById(`img-${id}`);
+            const placeholder = document.getElementById(`placeholder-${id}`);
+            const removeBtn = document.getElementById(`btn-remove-${id}`);
+            const fileInput = document.getElementById(`file-${id}`);
+            
+            if(img) { img.src = ''; img.classList.add('hidden'); }
+            if(placeholder) placeholder.classList.remove('opacity-0');
+            if(removeBtn) removeBtn.classList.add('hidden');
+            if(fileInput) fileInput.value = '';
+            
+            removeFromStorage(id);
+        }
+
+        function showImage(id, src) {
+            const img = document.getElementById(`img-${id}`);
+            const placeholder = document.getElementById(`placeholder-${id}`);
+            const removeBtn = document.getElementById(`btn-remove-${id}`);
+            if(img) { img.src = src; img.classList.remove('hidden'); }
+            if(placeholder) placeholder.classList.add('opacity-0');
+            if(removeBtn) removeBtn.classList.remove('hidden');
+        }
+
+        function switchDay(day) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if(btn.id === `btn-${day}`) {
+                    btn.classList.add('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
+                    btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
+                    btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+                }
+            });
+            renderDay(day);
+        }
+
+        // --- PHẦN 2: LOGIC MOODBOARD (CẬP NHẬT MỚI) ---
+        
+        // Load Moodboard khi mở trang
+        function loadMoodboard() {
+            const grid = document.getElementById('moodboard-grid');
+            grid.innerHTML = ''; // Xóa trắng trước khi render lại
+            
+            // Lấy danh sách ảnh từ Storage (dạng mảng JSON)
+            const storedMoods = JSON.parse(localStorage.getItem('moodboard_gallery') || '[]');
+            
+            // Render từng ảnh
+            storedMoods.forEach((imgSrc, index) => {
+                const div = document.createElement('div');
+                div.className = 'break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative mb-6 fade-in bg-white';
+                div.innerHTML = `
+                    <img src="${imgSrc}" class="w-full block">
+                    <button onclick="deleteMoodItem(${index})" class="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                `;
+                grid.prepend(div); // Thêm vào đầu danh sách
+            });
+        }
+
+        // Thêm ảnh vào Moodboard
+        function addToMoodboard(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newImage = e.target.result;
+                    
+                    // Lấy danh sách cũ -> Thêm ảnh mới -> Lưu lại
+                    const storedMoods = JSON.parse(localStorage.getItem('moodboard_gallery') || '[]');
+                    storedMoods.push(newImage);
+                    
+                    try {
+                        localStorage.setItem('moodboard_gallery', JSON.stringify(storedMoods));
+                        // Render lại để thấy ngay
+                        loadMoodboard(); 
+                    } catch (err) {
+                        alert("Ảnh Moodboard nặng quá Tula ơi! Thử ảnh khác nhé.");
+                    }
+                    
+                    // Reset input để chọn lại được ảnh cũ nếu muốn
+                    input.value = '';
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Xóa ảnh khỏi Moodboard
+        function deleteMoodItem(index) {
+            if(confirm('Bạn có chắc muốn xóa ảnh mood này không?')) {
+                const storedMoods = JSON.parse(localStorage.getItem('moodboard_gallery') || '[]');
+                // Cắt bỏ ảnh tại vị trí index
+                storedMoods.splice(index, 1);
+                // Lưu lại danh sách mới
+                localStorage.setItem('moodboard_gallery', JSON.stringify(storedMoods));
+                // Render lại
+                loadMoodboard();
+            }
+        }
+
+        // --- KHỞI CHẠY LẦN ĐẦU ---
+        switchDay('day29'); // Load tab đầu tiên
+        loadMoodboard();    // Load moodboard
+
+    </script>
+</body>
+</html>

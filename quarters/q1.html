@@ -14,6 +14,7 @@
                         primary: '#f8fafc', 
                         secondary: '#94a3b8', 
                         accent: '#22d3ee', /* Cyan 400 */
+                        gold: '#fbbf24', /* Amber 400 - For March */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -22,6 +23,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-out forwards',
                         'float': 'float 6s ease-in-out infinite',
+                        'pulse-gold': 'pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -31,6 +33,10 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGold: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' },
                         }
                     }
                 }
@@ -52,6 +58,18 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         }
+        .glass-gold {
+            background: rgba(251, 191, 36, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            transition: all 0.4s ease;
+        }
+        .glass-gold:hover {
+            background: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px -10px rgba(251, 191, 36, 0.15);
+        }
         .micro-chip {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -68,6 +86,26 @@
             border-color: rgba(34, 211, 238, 0.3);
             color: #22d3ee;
             background: rgba(34, 211, 238, 0.05);
+        }
+        /* Custom Checkbox for March */
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+        }
+        .check-item:last-child { border-bottom: none; }
+        .check-box-gold {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #fbbf24;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .check-box-gold.checked {
+            background: #fbbf24;
+            box-shadow: 0 0 10px #fbbf24;
         }
         .section-header {
             display: flex;
@@ -95,7 +133,7 @@
 
     <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="/index.html" class="flex items-center gap-3 group">
+            <a href="index.html" class="flex items-center gap-3 group">
                 <span class="text-secondary group-hover:text-accent transition-colors">←</span>
                 <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Back to Roadmap</span>
             </a>
@@ -276,10 +314,78 @@
             </div>
         </section>
 
+        <section class="mb-24 animate-fade-in relative" style="animation-delay: 0.8s;">
+            <div class="absolute -inset-1 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 rounded-3xl blur-xl opacity-30 animate-pulse-gold"></div>
+            
+            <div class="section-header border-gold/20">
+                <span class="section-number text-gold/30">04</span>
+                <div>
+                    <h2 class="text-xl font-bold text-gold tracking-wider drop-shadow-md">MARCH FOCUS</h2>
+                    <p class="text-[10px] text-gold/60 uppercase tracking-widest">Number 8: Power & Manifestation</p>
+                </div>
+            </div>
+
+            <div class="glass-gold p-8 rounded-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 text-9xl font-serif font-bold text-gold/5 pointer-events-none">8</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-serif italic text-white mb-4">The Manifestation Month</h3>
+                        <p class="text-sm text-secondary leading-relaxed mb-6">
+                            Tháng của <strong class="text-gold">tiền bạc, sự nghiệp</strong> và kết quả hữu hình. 
+                            Thời điểm "vàng" để chốt deal lương hoặc nhận offer thực tập BA tốt nhất.
+                        </p>
+                        <div class="p-4 bg-black/20 rounded-xl border border-gold/10">
+                            <span class="text-[10px] uppercase text-gold/80 tracking-widest block mb-2">Core Mindset</span>
+                            <p class="text-white text-sm font-medium">"Rải CV và phỏng vấn với tâm thế của một người có giá trị."</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">March Actions</h4>
+                        <div class="space-y-1">
+                            <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Hoàn thiện CV & Portfolio bản Final.</span>
+                            </label>
+                            <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Apply 5-10 công ty Target.</span>
+                            </label>
+                            <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Mock Interview 3 buổi.</span>
+                            </label>
+                            <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Networking: Connect 5 Senior BAs.</span>
+                            </label>
+                            <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Bắt đầu đi thực tập.</span>
+                            </label>
+                             <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Ổn định giấc ngủ sớm 10h15</span>
+                            </label>
+                             <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Biết makeup cơ bản, nền tệp da, mỏng mịn tự nhiên</span>
+                            </label>
+                             <label class="check-item group">
+                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Tăng tạ gym, meal plan ăn uống đủ chất</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
-        <p>System > Roadmap > Q1 2026</p>
+        <p>System > Roadmap > Q1 2026 > March Focus</p>
     </footer>
 
 </body>

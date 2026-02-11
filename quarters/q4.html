@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula OS | Q4 Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617', 
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#10b981', /* Emerald 500 - Healing/Care */
+                        oct: '#10b981',    /* Month 10 (6) */
+                        nov: '#8b5cf6',    /* Month 11 (7) - Violet */
+                        dec: '#fbbf24',    /* Month 12 (8) - Gold */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        .micro-chip {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .glass:hover .micro-chip {
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.1);
+        }
+        /* Custom Checkbox */
+        .check-item { display: flex; align-items: start; gap: 12px; padding: 8px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); cursor: pointer; }
+        .check-item:last-child { border-bottom: none; }
+        .check-box-custom { width: 16px; height: 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; flex-shrink: 0; margin-top: 3px; transition: all 0.2s; }
+        
+        /* Oct Theme (Emerald) */
+        .card-oct { border-top: 2px solid rgba(16, 185, 129, 0.5); }
+        .card-oct:hover { box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.15); border-color: #10b981; }
+        .card-oct .check-box-custom.checked { background: #10b981; border-color: #10b981; box-shadow: 0 0 10px #10b981; }
+        
+        /* Nov Theme (Violet) */
+        .card-nov { border-top: 2px solid rgba(139, 92, 246, 0.5); }
+        .card-nov:hover { box-shadow: 0 20px 50px -10px rgba(139, 92, 246, 0.15); border-color: #8b5cf6; }
+        .card-nov .check-box-custom.checked { background: #8b5cf6; border-color: #8b5cf6; box-shadow: 0 0 10px #8b5cf6; }
+
+        /* Dec Theme (Gold) */
+        .card-dec { border-top: 2px solid rgba(251, 191, 36, 0.5); }
+        .card-dec:hover { box-shadow: 0 20px 50px -10px rgba(251, 191, 36, 0.15); border-color: #fbbf24; }
+        .card-dec .check-box-custom.checked { background: #fbbf24; border-color: #fbbf24; box-shadow: 0 0 10px #fbbf24; }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[128px] opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-violet-900/10 rounded-full blur-[128px] opacity-50"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Back to Roadmap</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">PHASE <span class="text-white">III</span></div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-70 animate-float">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z"></path>
+            </svg>
+        </div>
+        <h2 class="text-accent text-[10px] tracking-[0.4em] uppercase mb-4">Oct — Dec 2026</h2>
+        <h1 class="text-4xl md:text-6xl font-serif italic mb-4 text-white">Legacy & Scale</h1>
+        <p class="text-secondary max-w-xl mx-auto text-sm font-light leading-relaxed">
+            Đóng gói quy trình & Thu hoạch thành quả. <br>Kết thúc năm số 5 bằng sự cân bằng và thịnh vượng.
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 z-10 relative">
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">CORE FOCUS</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Skill Depth & Self-Care</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Birthday & Self</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Tháng sinh nhật. Nuông chiều bản thân và phục hồi năng lượng.</p>
+                    <span class="micro-chip">Well-being</span>
+                </div>
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Deep Skill</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Học sâu về Data Analysis hoặc IT Project Management.</p>
+                    <span class="micro-chip">Level Up</span>
+                </div>
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Harvest</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Thu hoạch tài chính. Công nhận năng lực tại nơi làm việc.</p>
+                    <span class="micro-chip">Rewards</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="section-header"><span class="section-number">02</span><div><h2 class="text-xl font-bold text-white tracking-wider">ACTION PLAN</h2><p class="text-[10px] text-secondary uppercase tracking-widest">Maintenance & Growth</p></div></div>
+            <div class="space-y-4">
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto"><div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><div><h4 class="font-bold text-white">Body Tuning</h4><p class="text-xs text-secondary">Skincare phục hồi da nhạy cảm. Niềng răng ổn định.</p></div></div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"><div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 w-[90%]"></div></div><span class="micro-chip border-emerald-500/30 text-emerald-400">Recovery</span></div>
+                </div>
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto"><div class="p-3 rounded-lg bg-violet-500/10 text-violet-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div><div><h4 class="font-bold text-white">Advanced Study</h4><p class="text-xs text-secondary">Học Data Analysis / ITPM mỗi cuối tuần.</p></div></div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"><div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-violet-500 w-[60%]"></div></div><span class="micro-chip border-violet-500/30 text-violet-400">Deep Work</span></div>
+                </div>
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto"><div class="p-3 rounded-lg bg-amber-500/10 text-amber-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div><div><h4 class="font-bold text-white">Career Review</h4><p class="text-xs text-secondary">Đánh giá hiệu suất cuối năm (Performance Review).</p></div></div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"><div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-amber-500 w-[100%]"></div></div><span class="micro-chip border-amber-500/30 text-amber-400">Final Push</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.6s;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">RESULTS</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">End of 2026</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400 group-hover:scale-110 transition-transform"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div>
+                    <div><h3 class="text-white font-bold text-lg group-hover:text-emerald-400 transition-colors">Prime Physique</h3><p class="text-xs text-secondary mb-2 font-light">63kg - 18% Body Fat. Braces On.</p><span class="micro-chip border-emerald-500/30 text-emerald-400 bg-emerald-500/5">Achieved</span></div>
+                </a>
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-violet-500/10 rounded-lg text-violet-400 group-hover:scale-110 transition-transform"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                    <div><h3 class="text-white font-bold text-lg group-hover:text-violet-400 transition-colors">Sharp BA</h3><p class="text-xs text-secondary mb-2 font-light">Full-time Job. Professional Mindset.</p><span class="micro-chip border-violet-500/30 text-violet-400 bg-violet-500/5">Confirmed</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in relative" style="animation-delay: 0.8s;">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">MONTHLY ENERGY</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Numerology & Action</p>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                
+                <div class="glass card-oct p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-emerald-500/5 pointer-events-none group-hover:text-emerald-500/10 transition-colors">6</div>
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">October</span>
+                                <span class="h-[1px] w-8 bg-emerald-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Responsibility & Family</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng sinh nhật (Số 6). Quay về chăm sóc bản thân và kết nối với gia đình. 
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-emerald-500/10">
+                                <span class="text-[10px] uppercase text-emerald-400/80 tracking-widest block mb-2">Key Vibe</span>
+                                <p class="text-white text-sm font-medium">"Treat myself. Phục hồi da nhạy cảm. Bữa cơm gia đình."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-emerald-400 transition-colors">Buy Birthday Gift for Self.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-emerald-400 transition-colors">Skincare Routine Upgrade.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-emerald-400 transition-colors">Family Gathering.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass card-nov p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-violet-500/5 pointer-events-none group-hover:text-violet-500/10 transition-colors">7</div>
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-violet-400">November</span>
+                                <span class="h-[1px] w-8 bg-violet-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Deep Knowledge</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng của sự chiêm nghiệm và học hỏi chuyên sâu (Số 7). Nâng tầm não bộ với kiến thức mới.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-violet-500/10">
+                                <span class="text-[10px] uppercase text-violet-400/80 tracking-widest block mb-2">Key Vibe</span>
+                                <p class="text-white text-sm font-medium">"Học Data Analysis / ITPM. Thời gian tĩnh lặng để suy ngẫm."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors">Enroll Advanced Data Course.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors">Read 2 Professional Books.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors">Journaling 2026 Reflections.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass card-dec p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-amber-500/5 pointer-events-none group-hover:text-amber-500/10 transition-colors">8</div>
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">December</span>
+                                <span class="h-[1px] w-8 bg-amber-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Financial Harvest</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng của thành quả tài chính và sự công nhận (Số 8). Kết thúc năm số 5 đầy biến động một cách rực rỡ.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-amber-500/10">
+                                <span class="text-[10px] uppercase text-amber-400/80 tracking-widest block mb-2">Key Vibe</span>
+                                <p class="text-white text-sm font-medium">"Thưởng tết, lương tháng 13, hoặc sự thăng tiến trong công việc."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors">Year-End Party / Networking.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors">Review Financial Goals.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors">Plan for 2027 (Year 6).</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>System > Roadmap > Q4 2026</p>
+    </footer>
+
+</body>
+</html>

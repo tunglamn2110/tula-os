@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula OS | Q3 Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617', 
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#2dd4bf', /* Teal 400 - Creativity */
+                        july: '#2dd4bf',   /* Teal - Month 7 (3) */
+                        aug: '#3b82f6',    /* Blue - Month 8 (4) */
+                        sep: '#d946ef',    /* Fuchsia - Month 9 (5) */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(45, 212, 191, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        .micro-chip {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .glass:hover .micro-chip {
+            border-color: rgba(45, 212, 191, 0.3);
+            color: #2dd4bf;
+            background: rgba(45, 212, 191, 0.05);
+        }
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.1);
+        }
+        /* Custom Checkbox */
+        .check-item { display: flex; align-items: start; gap: 12px; padding: 8px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); cursor: pointer; }
+        .check-item:last-child { border-bottom: none; }
+        .check-box-custom { width: 16px; height: 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; flex-shrink: 0; margin-top: 3px; transition: all 0.2s; }
+        
+        /* July Theme (Teal) */
+        .card-july { border-top: 2px solid rgba(45, 212, 191, 0.5); }
+        .card-july:hover { box-shadow: 0 20px 50px -10px rgba(45, 212, 191, 0.15); border-color: #2dd4bf; }
+        .card-july .check-box-custom.checked { background: #2dd4bf; border-color: #2dd4bf; box-shadow: 0 0 10px #2dd4bf; }
+        
+        /* August Theme (Blue) */
+        .card-aug { border-top: 2px solid rgba(59, 130, 246, 0.5); }
+        .card-aug:hover { box-shadow: 0 20px 50px -10px rgba(59, 130, 246, 0.15); border-color: #3b82f6; }
+        .card-aug .check-box-custom.checked { background: #3b82f6; border-color: #3b82f6; box-shadow: 0 0 10px #3b82f6; }
+
+        /* September Theme (Fuchsia) */
+        .card-sep { border-top: 2px solid rgba(217, 70, 239, 0.5); }
+        .card-sep:hover { box-shadow: 0 20px 50px -10px rgba(217, 70, 239, 0.15); border-color: #d946ef; }
+        .card-sep .check-box-custom.checked { background: #d946ef; border-color: #d946ef; box-shadow: 0 0 10px #d946ef; }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-900/10 rounded-full blur-[128px] opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-fuchsia-900/10 rounded-full blur-[128px] opacity-50"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Back to Roadmap</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">PHASE <span class="text-white">III</span></div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-70 animate-float">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(45,212,191,0.3)]">
+                <path d="M12 3c-4 4 -8 4 -8 10c0 4 4 8 8 8s8 -4 8 -8c0 -6 -4 -6 -8 -10z"></path>
+                <path d="M12 3v18"></path>
+                <path d="M12 13l-8 -3"></path>
+                <path d="M12 13l8 -3"></path>
+            </svg>
+        </div>
+        <h2 class="text-accent text-[10px] tracking-[0.4em] uppercase mb-4">Jul — Sep 2026</h2>
+        <h1 class="text-4xl md:text-6xl font-serif italic mb-4 text-white">Transformation</h1>
+        <p class="text-secondary max-w-xl mx-auto text-sm font-light leading-relaxed">
+            Tăng tốc & Biến đổi. Tập trung vào chứng chỉ quốc tế và nâng cấp diện mạo (Niềng răng).
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 z-10 relative">
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">CORE FOCUS</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Finance, Skill & Beauty</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-2">The "Braces" Fund</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Mục tiêu: Đạt 50-70% tổng chi phí niềng răng.</p>
+                    <span class="micro-chip">Savings</span>
+                </div>
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-2">High TOEIC</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Cày đề và lấy bằng. Target 850+.</p>
+                    <span class="micro-chip">Certificate</span>
+                </div>
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Dental Choice</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Đi tư vấn 3-5 nha khoa. Chốt phác đồ điều trị.</p>
+                    <span class="micro-chip">Decision</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="section-header"><span class="section-number">02</span><div><h2 class="text-xl font-bold text-white tracking-wider">ACTION PLAN</h2><p class="text-[10px] text-secondary uppercase tracking-widest">Grinding Mode</p></div></div>
+            <div class="space-y-4">
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto"><div class="p-3 rounded-lg bg-teal-500/10 text-teal-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><div><h4 class="font-bold text-white">English Grinding</h4><p class="text-xs text-secondary">Mỗi ngày 1 đề Reading/Listening. Shadowing 15'.</p></div></div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"><div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-teal-500 w-[90%]"></div></div><span class="micro-chip border-teal-500/30 text-teal-400">Daily Task</span></div>
+                </div>
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto"><div class="p-3 rounded-lg bg-blue-500/10 text-blue-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><div><h4 class="font-bold text-white">Strict Saving</h4><p class="text-xs text-secondary">Cắt giảm chi tiêu không cần thiết. Dồn tiền vào quỹ.</p></div></div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"><div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-blue-500 w-[75%]"></div></div><span class="micro-chip border-blue-500/30 text-blue-400">Financial</span></div>
+                </div>
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto"><div class="p-3 rounded-lg bg-fuchsia-500/10 text-fuchsia-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div><div><h4 class="font-bold text-white">Clinic Research</h4><p class="text-xs text-secondary">Review, đặt lịch tư vấn, so sánh giá/phác đồ.</p></div></div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"><div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-fuchsia-500 w-[50%]"></div></div><span class="micro-chip border-fuchsia-500/30 text-fuchsia-400">Weekend</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.6s;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">RESULTS</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">End of Quarter 3</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-teal-500/10 rounded-lg text-teal-400 group-hover:scale-110 transition-transform"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <div><h3 class="text-white font-bold text-lg group-hover:text-teal-400 transition-colors">TOEIC Certificate</h3><p class="text-xs text-secondary mb-2 font-light">Score 850+. Ready for Senior CV.</p><span class="micro-chip border-teal-500/30 text-teal-400 bg-teal-500/5">Achieved</span></div>
+                </a>
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400 group-hover:scale-110 transition-transform"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <div><h3 class="text-white font-bold text-lg group-hover:text-blue-400 transition-colors">Fund 70%</h3><p class="text-xs text-secondary mb-2 font-light">Available cash for down payment.</p><span class="micro-chip border-blue-500/30 text-blue-400 bg-blue-500/5">Secured</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in relative" style="animation-delay: 0.8s;">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">MONTHLY ENERGY</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Numerology & Action</p>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                
+                <div class="glass card-july p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-teal-500/5 pointer-events-none group-hover:text-teal-500/10 transition-colors">3</div>
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-teal-400">July</span>
+                                <span class="h-[1px] w-8 bg-teal-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Spread & Shine</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng của sự sáng tạo và giao tiếp (Số 3). Năng lượng "ngựa ngựa" lên cao, muốn làm đẹp và thể hiện bản thân.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-teal-500/10">
+                                <span class="text-[10px] uppercase text-teal-400/80 tracking-widest block mb-2">Key Vibe</span>
+                                <p class="text-white text-sm font-medium">"Tỏa sáng trong các buổi thuyết trình (Elicitation). Chăm chút diện mạo."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-teal-400 transition-colors">Lead 1 buổi Workshop/Meeting.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-teal-400 transition-colors">Đi tư vấn nha khoa (Lần 1).</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-teal-400 transition-colors">Mua quần áo mới (Smart Casual).</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass card-aug p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-blue-500/5 pointer-events-none group-hover:text-blue-500/10 transition-colors">4</div>
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-blue-400">August</span>
+                                <span class="h-[1px] w-8 bg-blue-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Structure & Discipline</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng của sự xây dựng và nền móng (Số 4). Quay về với kỷ luật thép để đạt mục tiêu tài chính.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-blue-500/10">
+                                <span class="text-[10px] uppercase text-blue-400/80 tracking-widest block mb-2">Key Vibe</span>
+                                <p class="text-white text-sm font-medium">"Siết chặt chi tiêu cho quỹ niềng. Gym PPL không bỏ buổi nào."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-blue-400 transition-colors">Savings: 70% Income -> Fund.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-blue-400 transition-colors">Gym: 20 Buổi/Tháng.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-blue-400 transition-colors">TOEIC Intensive (Giải đề).</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass card-sep p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-fuchsia-500/5 pointer-events-none group-hover:text-fuchsia-500/10 transition-colors">5</div>
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-fuchsia-400">September</span>
+                                <span class="h-[1px] w-8 bg-fuchsia-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Peak Change</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Đỉnh cao thay đổi (Năm 5 - Tháng 5). Sự dịch chuyển lớn về công việc hoặc diện mạo.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-fuchsia-500/10">
+                                <span class="text-[10px] uppercase text-fuchsia-400/80 tracking-widest block mb-2">Key Vibe</span>
+                                <p class="text-white text-sm font-medium">"Đi công tác hoặc Bắt đầu hành trình niềng răng."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-fuchsia-400 transition-colors">Thi TOEIC & Nhận bằng.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-fuchsia-400 transition-colors">Ký hợp đồng Niềng răng.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-fuchsia-400 transition-colors">Business Trip / Project Change.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>System > Roadmap > Q3 2026</p>
+    </footer>
+
+</body>
+</html>

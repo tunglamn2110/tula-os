@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <title>Tula OS | Pillar IV: TIỀN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617', 
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#fbbf24', /* Amber 400 - Money Color */
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+                    animation: { 'fade-in': 'fadeIn 0.8s ease-out forwards', 'float': 'float 6s ease-in-out infinite' },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(251, 191, 36, 0.3); transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5); }
+        .micro-chip { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.6rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #94a3b8; transition: all 0.3s ease; white-space: nowrap; }
+        .glass:hover .micro-chip { border-color: rgba(251, 191, 36, 0.3); color: #fbbf24; background: rgba(251, 191, 36, 0.05); }
+        .section-header { display: flex; align-items: flex-end; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .section-number { font-family: 'Playfair Display', serif; font-style: italic; font-size: 3rem; line-height: 1; color: rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-yellow-900/10 rounded-full blur-[128px] opacity-60"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-900/10 rounded-full blur-[128px] opacity-60"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Return to OS</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">PILLAR <span class="text-white">IV</span></div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-60 animate-float">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1"></path><path d="M12 7v10"></path></svg>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-serif italic mb-3 text-white">Tiền</h1>
+        <div class="flex items-center justify-center gap-4 text-[10px] uppercase tracking-[0.3em] text-accent/80">
+            <span>Asset</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Flow</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Growth</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 z-10 relative">
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header"><span class="section-number">01</span><div><h2 class="text-xl font-bold text-white tracking-wider">CASHFLOW</h2><p class="text-[10px] text-secondary uppercase tracking-widest">In & Out Management</p></div></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://shopee.vn/USER_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-accent/50">
+                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Shop</span></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Shopee Pass</h3>
+                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Liquidity</span><span class="micro-chip">Declutter</span><span class="micro-chip">Revenue</span></div>
+                </a>
+                <a href="https://notion.so/YOUR_BUDGET_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Track</span></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Goals & Budget</h3>
+                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">ThinkPad</span><span class="micro-chip">iPhone Fix</span><span class="micro-chip">Emergency</span></div>
+                </a>
+                <a href="#" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Inv</span></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Tech Assets</h3>
+                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">ROI Focus</span><span class="micro-chip">Upgrade</span><span class="micro-chip">Maintenance</span></div>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula OS | Pillar I: THÂN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617',  /* Slate 950 */
+                        card: 'rgba(30, 41, 59, 0.4)',
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#38bdf8', /* Sky 400 */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        /* Micro-chip styling for keywords */
+        .micro-chip {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .glass:hover .micro-chip {
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.05);
+        }
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[128px] opacity-60"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[128px] opacity-60"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">System Overview</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">
+                PILLAR <span class="text-white">I</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-60 animate-float">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                <defs>
+                    <linearGradient id="butterflyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                        <stop offset="100%" stop-color="#818cf8" stop-opacity="0.4" />
+                    </linearGradient>
+                </defs>
+                <path d="M95,100 C60,40 10,20 10,70 C10,120 70,140 95,110" fill="url(#butterflyGradient)" />
+                <path d="M105,100 C140,40 190,20 190,70 C190,120 130,140 105,110" fill="url(#butterflyGradient)" />
+            </svg>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-serif italic mb-3 text-white">Thân</h1>
+        <div class="flex items-center justify-center gap-4 text-[10px] uppercase tracking-[0.3em] text-accent/80">
+            <span>Discipline</span>
+            <span class="w-1 h-1 rounded-full bg-accent"></span>
+            <span>Aesthetic</span>
+            <span class="w-1 h-1 rounded-full bg-accent"></span>
+            <span>Power</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 z-10 relative">
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">AESTHETIC</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Visual Optimization</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_SKINCARE_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Skincare</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Anti-redness</span>
+                        <span class="micro-chip">Repair</span>
+                        <span class="micro-chip">Ceramide</span>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/folders/1JRT4wq9cdwNPPb5EJIByTfmUQPI530JP" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Fashion</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Dark Winter</span>
+                        <span class="micro-chip">Clean Boy</span>
+                        <span class="micro-chip">Outfit Log</span>
+                    </div>
+                </a>
+
+                <a href="https://docs.google.com/document/d/1IDG3AdpC8GZGLfk3RUeiBGqDWmUFLJawuUXYpFTb1oE/edit?usp=sharing" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full md:col-span-2 relative overflow-hidden">
+                    <div class="absolute right-0 top-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                    </div>
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-teal-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0 0L2.121 2.121m5.758 5.758L12 12"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Grooming & Details</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Hair</span>
+                        <span class="micro-chip">Eye Exercises</span>
+                        <span class="micro-chip">Teeth & Lip Care</span>
+                        <span class="micro-chip">Body Hair</span>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/folders/1P1Hbnt8h-r1RfcN-pZNQXTpJie3nZtsg" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-rose-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Makeup</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Contour</span>
+                        <span class="micro-chip">Bronzer</span>
+                        <span class="micro-chip">Natural</span>
+                    </div>
+                </a>
+
+                <a href="https://docs.google.com/spreadsheets/d/1cOd1z4cTEvzJETGod5yI6lBP-2MHiqHaft-PKlOdHpc/edit?usp=drive_link" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-amber-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Physique Goals</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Body Fat 12%</span>
+                        <span class="micro-chip">V-Taper</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="mb-20 animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">LIFESTYLE</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">System Architecture</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <a href="https://docs.google.com/spreadsheets/d/1cOd1z4cTEvzJETGod5yI6lBP-2MHiqHaft-PKlOdHpc/edit?usp=drive_link" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-red-500/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Gym Routine</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Push</span>
+                        <span class="micro-chip">Pull</span>
+                        <span class="micro-chip">Legs</span>
+                    </div>
+                </a>
+
+                <a href="https://docs.google.com/spreadsheets/d/1cOd1z4cTEvzJETGod5yI6lBP-2MHiqHaft-PKlOdHpc/edit?usp=drive_link" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-green-500/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-green-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Meal Plan</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Macro</span>
+                        <span class="micro-chip">Protein</span>
+                        <span class="micro-chip">Clean Eat</span>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_SLEEP_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-indigo-500/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Sleep</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">22:30 Rule</span>
+                        <span class="micro-chip">Circadian</span>
+                        <span class="micro-chip">Rest</span>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_SUPP_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-cyan-500/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">TPCN</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Creatine</span>
+                        <span class="micro-chip">Vitamins</span>
+                        <span class="micro-chip">Omega-3</span>
+                        <span class="micro-chip">Magnesium Glycinate</span>
+
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>System v3.0 > Pillar I Status: Active</p>
+    </footer>
+
+</body>
+</html>

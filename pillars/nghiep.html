@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula OS | Pillar V: NGHIỆP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617', 
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#f43f5e', /* Rose 500 */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(244, 63, 94, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        .micro-chip {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .glass:hover .micro-chip {
+            border-color: rgba(244, 63, 94, 0.3);
+            color: #f43f5e;
+            background: rgba(244, 63, 94, 0.05);
+        }
+        /* Highlight specific must-have skills */
+        .glass:hover .micro-chip.must-have {
+            background: rgba(244, 63, 94, 0.15);
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.2);
+        }
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.1);
+        }
+        .roadmap-line {
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #f43f5e 0%, rgba(255,255,255,0.1) 100%);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-rose-900/10 rounded-full blur-[128px] opacity-60"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-[128px] opacity-60"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Return to OS</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">
+                PILLAR <span class="text-white">V</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-60 animate-float">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(244,63,94,0.3)]">
+                <path d="M12 2l0 20"></path><path d="M12 2l-4 4"></path><path d="M12 2l4 4"></path><path d="M4 10l16 0"></path>
+            </svg>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-serif italic mb-3 text-white">Nghiệp</h1>
+        <div class="flex items-center justify-center gap-4 text-[10px] uppercase tracking-[0.3em] text-accent/80">
+            <span>Career</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Brand</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Impact</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 z-10 relative">
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">CAREER ASSETS</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Current Inventory</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="#" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-accent/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Q1-Q2</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Internship</h3>
+                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Apply</span><span class="micro-chip">Interview</span><span class="micro-chip">Networking</span></div>
+                </a>
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_PORTFOLIO_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Drive ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Portfolio</h3>
+                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Case Study</span><span class="micro-chip">CV Review</span><span class="micro-chip">Personal Brand</span></div>
+                </a>
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_PROJECT_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Drive ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Key Projects</h3>
+                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Spa System</span><span class="micro-chip">Project II</span><span class="micro-chip">Research</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">ROADMAP</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Skill Acquisition Path</p>
+                </div>
+            </div>
+            <div class="relative pl-4">
+                <div class="roadmap-line"></div>
+                <div class="relative pl-12 pb-12 group">
+                    <div class="absolute left-4 top-2 w-4 h-4 rounded-full bg-dark border-2 border-accent shadow-[0_0_15px_#f43f5e] z-10"></div>
+                    <div class="glass p-6 rounded-xl hover:bg-white/5 transition-all">
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent transition-colors mb-1">PHASE 1: EXECUTION</h3>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-4">Intern / Fresher</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="micro-chip border-accent/30 text-accent">SQL Basic</span>
+                            <span class="micro-chip border-accent/30 text-accent">BPMN 2.0</span>
+                            <span class="micro-chip border-accent/30 text-accent">SRS Writing</span>
+                            <span class="micro-chip border-accent/30 text-accent">UAT Testing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative pl-12 pb-12 group">
+                    <div class="absolute left-4 top-2 w-4 h-4 rounded-full bg-dark border-2 border-slate-600 group-hover:border-accent transition-colors z-10"></div>
+                    <div class="glass p-6 rounded-xl hover:bg-white/5 transition-all">
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent transition-colors mb-1">PHASE 2: ANALYSIS</h3>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-4">Junior BA</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="micro-chip">SQL Analysis</span>
+                            <span class="micro-chip">API Integration</span>
+                            <span class="micro-chip">Data Modeling</span>
+                            <span class="micro-chip">Elicitation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative pl-12 group">
+                    <div class="absolute left-4 top-2 w-4 h-4 rounded-full bg-dark border-2 border-slate-600 group-hover:border-accent transition-colors z-10"></div>
+                    <div class="glass p-6 rounded-xl hover:bg-white/5 transition-all">
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent transition-colors mb-1">PHASE 3: STRATEGY</h3>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-4">Senior / PO</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="micro-chip">Product Roadmap</span>
+                            <span class="micro-chip">System Design</span>
+                            <span class="micro-chip">Data Strategy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.6s;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">COMPETENCY MATRIX</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Standardized ITBA Core (85-100% Coverage)</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass p-6 rounded-xl group flex flex-col h-full border-t-2 border-transparent hover:border-blue-500">
+                    <div class="mb-4 text-blue-400"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Modeling & Analysis</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="micro-chip must-have">BPMN 2.0</span>
+                        <span class="micro-chip must-have">Use Case</span>
+                        <span class="micro-chip must-have">System Context</span>
+                        <span class="micro-chip">State Diagram</span>
+                        <span class="micro-chip">Sequence</span>
+                        <span class="micro-chip">ERD (Data)</span>
+                        <span class="micro-chip">Business Rules</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl group flex flex-col h-full border-t-2 border-transparent hover:border-purple-500">
+                    <div class="mb-4 text-purple-400"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Documentation</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="micro-chip must-have">SRS / BRD</span>
+                        <span class="micro-chip must-have">FRD / FSD</span>
+                        <span class="micro-chip must-have">NFRs (Security)</span>
+                        <span class="micro-chip must-have">RTM Matrix</span>
+                        <span class="micro-chip">User Stories</span>
+                        <span class="micro-chip">UAT Scenarios</span>
+                        <span class="micro-chip">Test Cases</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl group flex flex-col h-full border-t-2 border-transparent hover:border-teal-500">
+                    <div class="mb-4 text-teal-400"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Tech & Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="micro-chip must-have">SQL Query</span>
+                        <span class="micro-chip must-have">Figma</span>
+                        <span class="micro-chip must-have">Jira / Confluence</span>
+                        <span class="micro-chip must-have">Swagger (API)</span>
+                        <span class="micro-chip">Excel Adv</span>
+                        <span class="micro-chip">Postman</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl group flex flex-col h-full border-t-2 border-transparent hover:border-amber-500">
+                    <div class="mb-4 text-amber-400"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Process & Domain</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="micro-chip must-have">SDLC / Agile</span>
+                        <span class="micro-chip must-have">Change Request</span>
+                        <span class="micro-chip must-have">Stakeholder Map</span>
+                        <span class="micro-chip">Impact Analysis</span>
+                        <span class="micro-chip">Elicitation</span>
+                        <span class="micro-chip">Domain (E-com)</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl group flex flex-col h-full border-t-2 border-transparent hover:border-rose-500">
+                    <div class="mb-4 text-rose-400"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Strategic Analysis</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="micro-chip">SWOT / PESTLE</span>
+                        <span class="micro-chip must-have">Porter 5 Forces</span>
+                        <span class="micro-chip">Value Chain</span>
+                        <span class="micro-chip">Root Cause (5 Whys)</span>
+                        <span class="micro-chip">Decision Matrix</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl group flex flex-col h-full border-t-2 border-transparent hover:border-indigo-500">
+                    <div class="mb-4 text-indigo-400"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white mb-4">BA Mindset</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="micro-chip must-have">Prioritization (MoSCoW)</span>
+                        <span class="micro-chip must-have">Design Thinking</span>
+                        <span class="micro-chip">Data-Driven</span>
+                        <span class="micro-chip">Critical Thinking</span>
+                        <span class="micro-chip">Systems Thinking</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>System > Pillar V > Operational</p>
+    </footer>
+
+</body>
+</html>

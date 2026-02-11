@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula OS | Q1 Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617', 
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#22d3ee', /* Cyan 400 */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(34, 211, 238, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        .micro-chip {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .glass:hover .micro-chip {
+            border-color: rgba(34, 211, 238, 0.3);
+            color: #22d3ee;
+            background: rgba(34, 211, 238, 0.05);
+        }
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[128px] opacity-50"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-slate-800/10 rounded-full blur-[128px] opacity-50"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Back to Roadmap</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">
+                PHASE <span class="text-white">I</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-70 animate-float">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+                <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9l8 -4.5"></path>
+                <path d="M12 12l8 -4.5"></path>
+                <path d="M12 12v9"></path>
+                <path d="M12 12l-8 -4.5"></path>
+            </svg>
+        </div>
+        <h2 class="text-accent text-[10px] tracking-[0.4em] uppercase mb-4">Jan — Mar 2026</h2>
+        <h1 class="text-4xl md:text-6xl font-serif italic mb-4 text-white">Stability & Foundation</h1>
+        <p class="text-secondary max-w-xl mx-auto text-sm font-light leading-relaxed">
+            Thiết lập "Hệ điều hành" cá nhân tự động hóa. <br>Xây dựng hạ tầng sự nghiệp và ổn định diện mạo.
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 z-10 relative">
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">OBJECTIVES</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Thân - Trí - Nghiệp</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Personal OS</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Tự động hóa thói quen Gym, Sleep & Deep Work.</p>
+                    <span class="micro-chip">Automate</span>
+                </div>
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Career Infra</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Hoàn thiện CV, Portfolio cho cơ hội Internship.</p>
+                    <span class="micro-chip">Portfolio</span>
+                </div>
+                <div class="glass p-8 rounded-xl group border-l-2 border-transparent hover:border-accent">
+                    <div class="mb-4 text-accent opacity-80">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Visual Stability</h3>
+                    <p class="text-sm text-secondary font-light mb-4">Làm quen niềng răng, Skincare & Makeup nền tảng.</p>
+                    <span class="micro-chip">Appearance</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">THE PROTOCOL</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Daily Actions</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Sleep Routine</h4>
+                            <p class="text-xs text-secondary">Ngủ trước 22:15. Phục hồi năng lượng.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+                        <div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-indigo-500 w-[70%]"></div></div>
+                        <span class="micro-chip border-indigo-500/30 text-indigo-400">Target: 50 Days</span>
+                    </div>
+                </div>
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <div class="p-3 rounded-lg bg-rose-500/10 text-rose-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Gym Consistency</h4>
+                            <p class="text-xs text-secondary">Duy trì lịch tập PPL. Cố định giờ tập.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+                        <div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-rose-500 w-[80%]"></div></div>
+                        <span class="micro-chip border-rose-500/30 text-rose-400">Min: 4 Sess/Week</span>
+                    </div>
+                </div>
+                <div class="glass p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <div class="p-3 rounded-lg bg-teal-500/10 text-teal-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Deep Work & BA</h4>
+                            <p class="text-xs text-secondary">Xây dựng Routine làm việc sâu. 1-2 Case Study.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+                        <div class="h-2 w-24 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-teal-500 w-[60%]"></div></div>
+                        <span class="micro-chip border-teal-500/30 text-teal-400">Focus Mode</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.6s;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">DELIVERABLES</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Tangible Results</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg group-hover:text-blue-400 transition-colors">Aroma Spa Project</h3>
+                        <p class="text-xs text-secondary mb-2 font-light">Complete BRD & SRS Documents.</p>
+                        <span class="micro-chip border-blue-500/30 text-blue-400 bg-blue-500/5">Docs Ready</span>
+                    </div>
+                </a>
+
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg group-hover:text-purple-400 transition-colors">Deep Work Mastery</h3>
+                        <p class="text-xs text-secondary mb-2 font-light">True familiarity. 90m blocks/no phone.</p>
+                        <span class="micro-chip border-purple-500/30 text-purple-400 bg-purple-500/5">Hyper Focus</span>
+                    </div>
+                </a>
+
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg group-hover:text-emerald-400 transition-colors">Schedule Opt.</h3>
+                        <p class="text-xs text-secondary mb-2 font-light">Optimized Sleep - Gym - Work flow.</p>
+                        <span class="micro-chip border-emerald-500/30 text-emerald-400 bg-emerald-500/5">Synced</span>
+                    </div>
+                </a>
+
+                <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
+                    <div class="p-3 bg-rose-500/10 rounded-lg text-rose-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg group-hover:text-rose-400 transition-colors">Visual Upgrade</h3>
+                        <p class="text-xs text-secondary mb-2 font-light">Flawless foundation. Reduced redness.</p>
+                        <span class="micro-chip border-rose-500/30 text-rose-400 bg-rose-500/5">Glow Up</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>System > Roadmap > Q1 2026</p>
+    </footer>
+
+</body>
+</html>

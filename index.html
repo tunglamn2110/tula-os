@@ -1,339 +1,320 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tula | Tet 2026 Lookbook</title>
+    <title>Tula Life OS | Hybrid Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0f172a', // Giữ màu xanh đậm chuyên nghiệp
-                        accent: '#ef4444',  // Đổi accent sang Đỏ (Red-500) cho có không khí Tết
-                        secondary: '#64748b',
-                        tet: '#fef2f2',     // Nền đỏ nhạt
+                        dark: '#020617',  /* Slate 950 */
+                        card: 'rgba(30, 41, 59, 0.4)', /* Glass dark */
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#38bdf8', /* Sky 400 */
+                        gold: '#fbbf24', /* Amber 400 */
+                        crimson: '#f43f5e', /* Rose 500 */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .fade-in { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Ẩn input file mặc định */
-        input[type="file"] {
-            display: none;
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .text-glow { text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+        .input-code {
+            letter-spacing: 0.5em;
+            text-align: center;
+            background: transparent;
+            border-bottom: 2px solid #38bdf8;
+            outline: none;
+            color: white;
+            font-family: monospace;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="relative">
 
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0 flex items-center gap-2">
-                    <span class="text-2xl font-bold text-primary tracking-tight">Tula<span class="text-accent">.Style</span></span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#wardrobe" class="text-sm font-medium text-slate-600 hover:text-accent transition-colors">Lên Đồ</a>
-                    <a href="#moodboard" class="text-sm font-medium text-slate-600 hover:text-accent transition-colors">Moodboard</a>
-                    <div class="px-4 py-1.5 bg-red-50 text-accent text-xs font-bold rounded-full border border-red-100">
-                        TET HOLIDAY 2026
-                    </div>
-                </div>
+    <div id="login-overlay" class="fixed inset-0 z-[100] bg-dark flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div class="z-10 text-center space-y-8 p-8">
+            <div class="mb-6 animate-pulse-slow">
+                <svg class="w-12 h-12 mx-auto text-accent opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             </div>
+            <h1 class="text-3xl font-serif italic tracking-widest text-white">TULA SYSTEM</h1>
+            <p class="text-secondary text-xs uppercase tracking-[0.3em]">Restricted Area</p>
+            <div class="relative group">
+                <input type="password" id="pass-input" class="input-code text-2xl w-64 py-2 focus:border-white transition-colors" placeholder="••••••••" onkeyup="checkEnter(event)">
+                <div id="error-msg" class="text-red-500 text-xs mt-3 h-4 opacity-0 transition-opacity">Access Denied</div>
+            </div>
+            <button onclick="unlockSystem()" class="mt-8 px-8 py-3 rounded-full border border-white/20 hover:bg-white hover:text-dark transition-all duration-300 text-xs tracking-widest uppercase">
+                Initialize
+            </button>
         </div>
-    </nav>
+    </div>
 
-    <main class="pt-20 pb-20">
+    <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
         
-        <section class="max-w-6xl mx-auto px-4 py-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-4">
-                Tet 2026 <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Wardrobe Planner</span>
+        <div class="fixed inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[128px]"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-900/10 rounded-full blur-[128px]"></div>
+        </div>
+
+        <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+            <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+                <div class="text-2xl font-serif italic font-bold tracking-widest text-white">
+                    TULA<span class="text-accent">.OS</span>
+                </div>
+                <div class="hidden md:flex space-x-12">
+                    <a href="#control" class="text-xs tracking-[0.2em] text-secondary hover:text-accent transition-colors uppercase">System</a>
+                    <a href="#pillars" class="text-xs tracking-[0.2em] text-secondary hover:text-accent transition-colors uppercase">Pillars</a>
+                    <a href="#roadmap" class="text-xs tracking-[0.2em] text-secondary hover:text-accent transition-colors uppercase">Roadmap</a>
+                </div>
+                <div class="text-xs tracking-widest uppercase text-secondary hidden md:block">
+                    v3.0 <span class="text-green-500 ml-2">●</span>
+                </div>
+            </div>
+        </nav>
+
+        <header class="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 pt-10 z-10 animate-fade-in">
+            <div class="w-64 h-64 md:w-80 md:h-80 mb-8 relative animate-float">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+                    <defs>
+                        <linearGradient id="butterflyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.4" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M95,100 C60,40 10,20 10,70 C10,120 70,140 95,110" fill="url(#butterflyGradient)" class="opacity-80" />
+                    <path d="M105,100 C140,40 190,20 190,70 C190,120 130,140 105,110" fill="url(#butterflyGradient)" class="opacity-80" />
+                    <path d="M95,115 C70,160 30,170 40,140 C50,110 80,110 95,115" fill="none" stroke="#38bdf8" stroke-width="0.5" />
+                    <path d="M105,115 C130,160 170,170 160,140 C150,110 120,110 105,115" fill="none" stroke="#38bdf8" stroke-width="0.5" />
+                    <line x1="100" y1="50" x2="100" y2="150" stroke="white" stroke-width="0.5" stroke-opacity="0.5" />
+                </svg>
+            </div>
+
+            <h2 class="text-accent text-sm tracking-[0.5em] mb-4 uppercase opacity-80">The Strategic Compass</h2>
+            <h1 class="text-5xl md:text-7xl font-serif italic mb-6 text-glow">
+                Metamorphosis
             </h1>
-            <p class="text-secondary max-w-xl mx-auto">
-                Lên lịch outfit cho những ngày Tết. Mặc đẹp, chỉn chu, gọn gàng.
+            <p class="text-secondary max-w-xl text-lg font-light leading-relaxed">
+                "I operate with systems, not moods."
             </p>
-        </section>
-
-        <section id="wardrobe" class="max-w-6xl mx-auto px-4">
             
-            <div class="flex flex-wrap justify-center gap-2 mb-10">
-                <button onclick="switchDay('day29')" class="tab-btn active px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm border border-transparent" id="btn-day29">
-                    29 Tết
-                </button>
-                <button onclick="switchDay('day1')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day1">
-                    Mùng 1
-                </button>
-                <button onclick="switchDay('day2')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day2">
-                    Mùng 2
-                </button>
-                <button onclick="switchDay('day3')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day3">
-                    Mùng 3
-                </button>
-                <button onclick="switchDay('day4')" class="tab-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all border border-slate-200 hover:border-accent hover:text-accent" id="btn-day4">
-                    Mùng 4
-                </button>
+            <div class="absolute bottom-10 animate-bounce">
+                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
             </div>
+        </header>
 
-            <div id="day-content" class="fade-in">
-                </div>
-
-        </section>
-
-        <section id="moodboard" class="max-w-6xl mx-auto px-4 mt-24 pt-10 border-t border-slate-200">
-            <div class="flex justify-between items-end mb-8">
-                <div>
-                    <h2 class="text-2xl font-bold text-primary">Moodboard & Vibe</h2>
-                    <p class="text-secondary text-sm mt-1">Cảm hứng phối đồ & màu sắc chủ đạo.</p>
-                </div>
-                <label class="cursor-pointer flex items-center gap-2 text-sm font-medium text-accent hover:text-red-600 transition-colors">
-                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                    Thêm ảnh Mood
-                    <input type="file" onchange="addToMoodboard(this)" accept="image/*">
-                </label>
+        <section id="control" class="max-w-4xl mx-auto px-6 mb-24 z-10 relative">
+            <div class="text-center mb-8">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-secondary border-b border-white/10 pb-2">Control Center</span>
             </div>
-
-            <div id="moodboard-grid" class="columns-2 md:columns-3 gap-6 space-y-6">
-                <div class="break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative">
-                    <img src="https://images.unsplash.com/photo-1488161628813-99c974c76949?q=80&w=1000&auto=format&fit=crop" class="w-full">
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <div class="break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative">
-                    <img src="https://images.unsplash.com/photo-1617137968427-b5742727b855?q=80&w=1000&auto=format&fit=crop" class="w-full">
-                </div>
-                 <div class="break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative">
-                    <img src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?q=80&w=1000&auto=format&fit=crop" class="w-full">
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="https://notion.so/YOUR_DAILY" target="_blank" class="glass p-4 rounded-xl flex items-center justify-between group hover:bg-white/5">
+                    <span class="font-bold text-sm text-white">DAILY SYSTEM</span>
+                    <span class="text-xs text-accent group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a href="https://notion.so/YOUR_WEEKLY" target="_blank" class="glass p-4 rounded-xl flex items-center justify-between group hover:bg-white/5">
+                    <span class="font-bold text-sm text-white">WEEKLY REVIEW</span>
+                    <span class="text-xs text-accent group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a href="https://notion.so/YOUR_MONTHLY" target="_blank" class="glass p-4 rounded-xl flex items-center justify-between group hover:bg-white/5">
+                    <span class="font-bold text-sm text-white">MONTHLY MACRO</span>
+                    <span class="text-xs text-accent group-hover:translate-x-1 transition-transform">→</span>
+                </a>
             </div>
         </section>
 
-    </main>
-
-    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-400 mt-12">
-        <p>Designed by Elias for Tula © 2026</p>
-    </footer>
-<script>
-        // Khởi tạo icon
-        lucide.createIcons();
-
-        // --- CẤU HÌNH DỮ LIỆU ---
-        const daysData = {
-            day29: { title: "29 Tết - Tất Niên", subtitle: "Comfortable & Casual - Cà phê, dọn nhà, ăn tất niên.", note: "Tone: Beige / Brown / White" },
-            day1: { title: "Mùng 1 - Khai Xuân", subtitle: "Formal & Traditional - Chúc tết gia đình, họ hàng.", note: "Tone: Red / Navy / Black" },
-            day2: { title: "Mùng 2 - Du Xuân", subtitle: "Smart Casual - Đi chơi với bạn bè, chụp ảnh.", note: "Tone: Pastel / Blue / Grey" },
-            day3: { title: "Mùng 3 - Hóa Vàng", subtitle: "Streetwear / Edgy - Thoải mái, năng động.", note: "Tone: All Black / Denim" },
-            day4: { title: "Mùng 4 - Xả Hơi", subtitle: "Sporty / Relaxed - Gym nhẹ, cafe chill.", note: "Tone: Sporty" }
-        };
-
-        // --- HÀM HỖ TRỢ STORAGE ---
-        function saveToStorage(key, value) {
-            try {
-                localStorage.setItem(key, value);
-            } catch (e) {
-                alert("Ouch! Bộ nhớ trình duyệt đầy rồi Tula ơi. Xóa bớt ảnh cũ hoặc dùng ảnh nhẹ hơn nhé!");
-            }
-        }
-        function getFromStorage(key) { return localStorage.getItem(key); }
-        function removeFromStorage(key) { localStorage.removeItem(key); }
-
-        // --- PHẦN 1: LOGIC LÊN ĐỒ (WARDROBE) ---
-        function renderDay(dayKey) {
-            const data = daysData[dayKey];
-            const container = document.getElementById('day-content');
+        <main id="pillars" class="max-w-6xl mx-auto px-6 mb-24 z-10 relative">
             
-            // Render khung HTML
-            container.innerHTML = `
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl shadow-slate-200/50 fade-in">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-6 border-b border-slate-100">
-                        <div>
-                            <h2 class="text-2xl font-bold text-primary">${data.title}</h2>
-                            <p class="text-slate-500 mt-1">${data.subtitle}</p>
-                        </div>
-                        <div class="mt-4 md:mt-0 px-4 py-2 bg-slate-50 rounded-lg text-sm font-semibold text-secondary border border-slate-200">
-                            🎨 ${data.note}
-                        </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                
+                <a href="pillars/than.html" class="glass p-8 rounded-2xl hover:border-accent/30 transition-all duration-500 group">
+                    <div class="h-12 w-12 rounded-full bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
+                        <span class="font-serif italic text-2xl text-white">I</span>
                     </div>
+                    <h3 class="text-2xl font-bold mb-2 tracking-wide">THÂN</h3>
+                    <p class="text-[10px] text-accent uppercase tracking-widest mb-6">Discipline & Aesthetic</p>
+                    <ul class="space-y-2 text-sm text-secondary font-light">
+                        <li>❖ Dark Winter Aesthetic</li>
+                        <li>❖ Gym PPL & Posture</li>
+                        <li>❖ Maintenance</li>
+                    </ul>
+                </a>
 
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="space-y-4">
-                            <h3 class="font-bold text-slate-700 flex items-center gap-2"><i data-lucide="shirt" class="w-4 h-4 text-accent"></i> Upper Body</h3>
-                            ${renderUploadCard(dayKey + '_top', 'Áo ngoài / Jacket', 'Chưa chọn ảnh')}
-                            ${renderUploadCard(dayKey + '_inner', 'Áo trong / T-shirt', 'Chưa chọn ảnh')}
-                        </div>
-                        <div class="space-y-4">
-                            <h3 class="font-bold text-slate-700 flex items-center gap-2"><i data-lucide="move-vertical" class="w-4 h-4 text-accent"></i> Lower Body</h3>
-                            ${renderUploadCard(dayKey + '_bottom', 'Quần / Trousers', 'Chưa chọn ảnh')}
-                            ${renderUploadCard(dayKey + '_shoes', 'Giày / Shoes', 'Chưa chọn ảnh')}
-                        </div>
-                        <div class="space-y-4">
-                            <h3 class="font-bold text-slate-700 flex items-center gap-2"><i data-lucide="watch" class="w-4 h-4 text-accent"></i> Accessories</h3>
-                            ${renderUploadCard(dayKey + '_acc', 'Phụ kiện chính', 'Đồng hồ, Kính, Túi...')}
-                             <div class="bg-slate-50 rounded-xl p-5 border border-slate-100 h-full">
-                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Checklist ra đường</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600">Nước hoa / Sáp</span></li>
-                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600">Ví & Giấy tờ</span></li>
-                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600">Sạc dự phòng</span></li>
-                                    <li class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-accent"><span class="text-sm text-slate-600 font-bold">Lì xì</span></li>
-                                </ul>
-                            </div>
-                        </div>
+                <a href="pillars/tam.html" class="glass p-8 rounded-2xl hover:border-accent/30 transition-all duration-500 group relative top-0 md:-top-6 shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                    <div class="h-12 w-12 rounded-full bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
+                        <span class="font-serif italic text-2xl text-white">II</span>
                     </div>
+                    <h3 class="text-2xl font-bold mb-2 tracking-wide">TÂM</h3>
+                    <p class="text-[10px] text-accent uppercase tracking-widest mb-6">Stoic & Calm</p>
+                    <ul class="space-y-2 text-sm text-secondary font-light">
+                        <li>❖ Emotional Control</li>
+                        <li>❖ Mental Wellness</li>
+                        <li>❖ Quality Connection</li>
+                    </ul>
+                </a>
+
+                <a href="pillars/tri.html" class="glass p-8 rounded-2xl hover:border-accent/30 transition-all duration-500 group">
+                    <div class="h-12 w-12 rounded-full bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
+                        <span class="font-serif italic text-2xl text-white">III</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 tracking-wide">TRÍ</h3>
+                    <p class="text-[10px] text-accent uppercase tracking-widest mb-6">Career & Competence</p>
+                    <ul class="space-y-2 text-sm text-secondary font-light">
+                        <li>❖ English</li>
+                        <li>❖ Soft Skills</li>
+                        <li>❖ Productivity & Perspective</li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <a href="pillars/tien.html" class="glass p-8 rounded-2xl hover:border-gold/30 transition-all duration-500 group">
+                    <div class="h-12 w-12 rounded-full bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-gold/10 transition-colors">
+                        <span class="font-serif italic text-2xl text-gold">IV</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 tracking-wide text-gold">TIỀN</h3>
+                    <p class="text-[10px] text-gold/70 uppercase tracking-widest mb-6">Assets & Cashflow</p>
+                    <ul class="space-y-2 text-sm text-secondary font-light">
+                        <li>❖ Management</li>
+                        <li>❖ Growth</li>
+                        <li>❖ Protection</li>
+                    </ul>
+                </a>
+
+                <a href="pillars/nghiep.html" class="glass p-8 rounded-2xl hover:border-crimson/30 transition-all duration-500 group">
+                    <div class="h-12 w-12 rounded-full bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-crimson/10 transition-colors">
+                        <span class="font-serif italic text-2xl text-crimson">V</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 tracking-wide text-crimson">NGHIỆP</h3>
+                    <p class="text-[10px] text-crimson/70 uppercase tracking-widest mb-6">Career Path & Legacy</p>
+                    <ul class="space-y-2 text-sm text-secondary font-light">
+                        <li>❖ Career Path</li>
+                        <li>❖ Personal Branding</li>
+                        <li>❖ Professional Network</li>
+                    </ul>
+                </a>
+            </div>
+        </main>
+
+        <section id="roadmap" class="border-t border-white/5 bg-gradient-to-b from-dark to-slate-900 py-24 px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-serif italic text-white mb-4">Planning Overview 2026</h2>
+                    <p class="text-secondary text-sm">Hành trình lột xác theo từng quý</p>
                 </div>
-            `;
-            lucide.createIcons();
 
-            // Load ảnh đã lưu
-            ['_top', '_inner', '_bottom', '_shoes', '_acc'].forEach(suffix => {
-                const id = dayKey + suffix;
-                const savedImg = getFromStorage(id);
-                if(savedImg) showImage(id, savedImg);
-            });
-        }
-
-        function renderUploadCard(id, title, sub) {
-            return `
-            <div class="group relative">
-                <label for="file-${id}" class="block cursor-pointer">
-                    <div class="aspect-[3/4] rounded-2xl bg-slate-100 border-2 border-dashed border-slate-300 hover:border-accent hover:bg-blue-50 transition-all flex flex-col items-center justify-center overflow-hidden relative" id="preview-${id}">
-                        <div class="text-center p-4" id="placeholder-${id}">
-                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm mx-auto mb-3 text-slate-400 group-hover:text-accent group-hover:scale-110 transition-all"><i data-lucide="image-plus" class="w-5 h-5"></i></div>
-                            <span class="text-sm font-semibold text-slate-600 block">${title}</span>
-                            <span class="text-xs text-slate-400 mt-1">${sub}</span>
+                <div class="relative border-l border-white/10 ml-6 md:ml-12 space-y-16">
+                    
+                    <a href="quarters/q1.html" class="block relative pl-12 group">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_10px_#38bdf8]"></div>
+                        <div class="glass p-6 rounded-xl hover:bg-white/5 transition-colors">
+                            <span class="text-[10px] font-bold text-accent uppercase tracking-widest">Jan - Mar</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Q1: Stability & Foundation</h3>
+                            <p class="text-slate-400 text-sm">Xây dựng nền tảng kỷ luật và kỹ năng cốt lõi.</p>
                         </div>
-                        <img id="img-${id}" class="absolute inset-0 w-full h-full object-cover hidden" />
-                    </div>
-                </label>
-                <input type="file" id="file-${id}" onchange="handleWardrobeUpload(this, '${id}')" accept="image/*" class="hidden">
-                <button onclick="removeWardrobeImage('${id}')" id="btn-remove-${id}" class="hidden absolute top-2 right-2 p-1 bg-white/90 rounded-full text-red-500 hover:bg-red-50 shadow-sm z-10 hover:scale-110 transition-transform"><i data-lucide="x" class="w-3 h-3"></i></button>
-            </div>`;
-        }
+                    </a>
 
-        function handleWardrobeUpload(input, id) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    showImage(id, e.target.result);
-                    saveToStorage(id, e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
+                    <a href="quarters/q2.html" class="block relative pl-12 group">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors"></div>
+                        <div class="glass p-6 rounded-xl hover:bg-white/5 transition-colors">
+                            <span class="text-[10px] font-bold text-secondary group-hover:text-accent transition-colors uppercase tracking-widest">Apr - Jun</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Q2: Acceleration & Internship</h3>
+                            <p class="text-slate-400 text-sm">Tăng tốc vào thị trường lao động và hoàn thiện kỹ năng.</p>
+                        </div>
+                    </a>
+
+                    <a href="quarters/q3.html" class="block relative pl-12 group">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors"></div>
+                        <div class="glass p-6 rounded-xl hover:bg-white/5 transition-colors">
+                            <span class="text-[10px] font-bold text-secondary group-hover:text-accent transition-colors uppercase tracking-widest">Jul - Sep</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Q3: Positioning & Graduation</h3>
+                            <p class="text-slate-400 text-sm">Khẳng định vị thế Junior BA và tốt nghiệp.</p>
+                        </div>
+                    </a>
+
+                    <a href="quarters/q4.html" class="block relative pl-12 group">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors"></div>
+                        <div class="glass p-6 rounded-xl hover:bg-white/5 transition-colors">
+                            <span class="text-[10px] font-bold text-secondary group-hover:text-accent transition-colors uppercase tracking-widest">Oct - Dec</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Q4: Legacy & Scale</h3>
+                            <p class="text-slate-400 text-sm">Đánh giá năm và chuẩn bị cho bước nhảy vọt 2027.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-8 text-center border-t border-white/5 text-slate-600 text-[10px] uppercase tracking-widest">
+            <p>&copy; 2026 Tula System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function checkEnter(event) { if (event.key === "Enter") unlockSystem(); }
+
+        function unlockSystem() {
+            const passInput = document.getElementById('pass-input').value;
+            const overlay = document.getElementById('login-overlay');
+            const mainContent = document.getElementById('main-content');
+            const errorMsg = document.getElementById('error-msg');
+
+            if (passInput === 'tula2026') {
+                errorMsg.style.opacity = '0';
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    void mainContent.offsetWidth; // Trigger reflow
+                    mainContent.style.opacity = '1';
+                }, 700);
+            } else {
+                errorMsg.style.opacity = '1';
+                document.getElementById('pass-input').classList.add('animate-pulse');
+                setTimeout(() => {
+                    document.getElementById('pass-input').classList.remove('animate-pulse');
+                }, 500);
             }
         }
-
-        function removeWardrobeImage(id) {
-            const img = document.getElementById(`img-${id}`);
-            const placeholder = document.getElementById(`placeholder-${id}`);
-            const removeBtn = document.getElementById(`btn-remove-${id}`);
-            const fileInput = document.getElementById(`file-${id}`);
-            
-            if(img) { img.src = ''; img.classList.add('hidden'); }
-            if(placeholder) placeholder.classList.remove('opacity-0');
-            if(removeBtn) removeBtn.classList.add('hidden');
-            if(fileInput) fileInput.value = '';
-            
-            removeFromStorage(id);
-        }
-
-        function showImage(id, src) {
-            const img = document.getElementById(`img-${id}`);
-            const placeholder = document.getElementById(`placeholder-${id}`);
-            const removeBtn = document.getElementById(`btn-remove-${id}`);
-            if(img) { img.src = src; img.classList.remove('hidden'); }
-            if(placeholder) placeholder.classList.add('opacity-0');
-            if(removeBtn) removeBtn.classList.remove('hidden');
-        }
-
-        function switchDay(day) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                if(btn.id === `btn-${day}`) {
-                    btn.classList.add('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
-                    btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-                } else {
-                    btn.classList.remove('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
-                    btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
-                }
-            });
-            renderDay(day);
-        }
-
-        // --- PHẦN 2: LOGIC MOODBOARD (CẬP NHẬT MỚI) ---
-        
-        // Load Moodboard khi mở trang
-        function loadMoodboard() {
-            const grid = document.getElementById('moodboard-grid');
-            grid.innerHTML = ''; // Xóa trắng trước khi render lại
-            
-            // Lấy danh sách ảnh từ Storage (dạng mảng JSON)
-            const storedMoods = JSON.parse(localStorage.getItem('moodboard_gallery') || '[]');
-            
-            // Render từng ảnh
-            storedMoods.forEach((imgSrc, index) => {
-                const div = document.createElement('div');
-                div.className = 'break-inside-avoid rounded-2xl overflow-hidden shadow-md group relative mb-6 fade-in bg-white';
-                div.innerHTML = `
-                    <img src="${imgSrc}" class="w-full block">
-                    <button onclick="deleteMoodItem(${index})" class="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </button>
-                `;
-                grid.prepend(div); // Thêm vào đầu danh sách
-            });
-        }
-
-        // Thêm ảnh vào Moodboard
-        function addToMoodboard(input) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const newImage = e.target.result;
-                    
-                    // Lấy danh sách cũ -> Thêm ảnh mới -> Lưu lại
-                    const storedMoods = JSON.parse(localStorage.getItem('moodboard_gallery') || '[]');
-                    storedMoods.push(newImage);
-                    
-                    try {
-                        localStorage.setItem('moodboard_gallery', JSON.stringify(storedMoods));
-                        // Render lại để thấy ngay
-                        loadMoodboard(); 
-                    } catch (err) {
-                        alert("Ảnh Moodboard nặng quá Tula ơi! Thử ảnh khác nhé.");
-                    }
-                    
-                    // Reset input để chọn lại được ảnh cũ nếu muốn
-                    input.value = '';
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        // Xóa ảnh khỏi Moodboard
-        function deleteMoodItem(index) {
-            if(confirm('Bạn có chắc muốn xóa ảnh mood này không?')) {
-                const storedMoods = JSON.parse(localStorage.getItem('moodboard_gallery') || '[]');
-                // Cắt bỏ ảnh tại vị trí index
-                storedMoods.splice(index, 1);
-                // Lưu lại danh sách mới
-                localStorage.setItem('moodboard_gallery', JSON.stringify(storedMoods));
-                // Render lại
-                loadMoodboard();
-            }
-        }
-
-        // --- KHỞI CHẠY LẦN ĐẦU ---
-        switchDay('day29'); // Load tab đầu tiên
-        loadMoodboard();    // Load moodboard
-
     </script>
 </body>
 </html>

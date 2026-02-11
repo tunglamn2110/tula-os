@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tula OS | Pillar III: TRÍ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617', 
+                        primary: '#f8fafc', 
+                        secondary: '#94a3b8', 
+                        accent: '#22d3ee', /* Cyan 400 - Intellect Color */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(34, 211, 238, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        .micro-chip {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .glass:hover .micro-chip {
+            border-color: rgba(34, 211, 238, 0.3);
+            color: #22d3ee;
+            background: rgba(34, 211, 238, 0.05);
+        }
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[128px] opacity-60"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-900/10 rounded-full blur-[128px] opacity-60"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-3 group">
+                <span class="text-secondary group-hover:text-accent transition-colors">←</span>
+                <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Return to OS</span>
+            </a>
+            <div class="text-sm font-bold tracking-widest text-white/50">
+                PILLAR <span class="text-white">III</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
+        <div class="w-20 h-20 mx-auto mb-6 opacity-60 animate-float">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+                <path d="M12 2L2 7l10 5l10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-serif italic mb-3 text-white">Trí</h1>
+        <div class="flex items-center justify-center gap-4 text-[10px] uppercase tracking-[0.3em] text-accent/80">
+            <span>Competence</span>
+            <span class="w-1 h-1 rounded-full bg-accent"></span>
+            <span>Skill</span>
+            <span class="w-1 h-1 rounded-full bg-accent"></span>
+            <span>Logic</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 z-10 relative">
+
+        <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <h2 class="text-xl font-bold text-white tracking-wider">KNOWLEDGE BASE</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Hard & Soft Skills</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <a href="https://drive.google.com/drive/folders/1sHo6Xhx-hQNGp_VGdYlU3Dz4bfl7Q5-y?usp=drive_link" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-accent/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Drive ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Hard Skills</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">SQL</span>
+                        <span class="micro-chip">BPMN</span>
+                        <span class="micro-chip">UML</span>
+                        <span class="micro-chip">Figma</span>
+                        <span class="micro-chip">Jira</span>
+                        <span class="micro-chip">Excel</span>
+                        <span class="micro-chip">Docs</span>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_UNI_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-blue-400/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Drive ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">University</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">GPA 3.5+</span>
+                        <span class="micro-chip">Bằng Giỏi</span>
+                        <span class="micro-chip">Kỳ II 3.8</span>
+                    </div>
+                </a>
+
+                <a href="https://www.notion.so/ENGLISH-1b6ff1efec958181a5ecd501054b57e8?source=copy_link" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-pink-400/50">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-pink-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Notion ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">English</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Shadowing</span>
+                        <span class="micro-chip">Listening</span>
+                        <span class="micro-chip">Business Terms</span>
+                    </div>
+                </a>
+
+                <a href="https://docs.google.com/document/d/13kMmp83HIVQ5O3Uy_MgXRue3PSzcOJAbhBAixaasiWY/edit?usp=drive_link" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-violet-400/50 lg:col-start-1 lg:col-span-1.5">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-violet-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Drive ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Cognition</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Soft Skills</span>
+                        <span class="micro-chip">Critical Thinking</span>
+                        <span class="micro-chip">Mindset</span>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/u/0/folders/YOUR_PROD_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-emerald-400/50 lg:col-start-2 lg:col-span-2">
+                    <div class="flex justify-between items-start mb-6">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-emerald-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <span class="text-[10px] uppercase text-slate-600 group-hover:text-white transition-colors">Drive ↗</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4">Productivity</h3>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Deep Work System</span>
+                        <span class="micro-chip">Time Blocking</span>
+                        <span class="micro-chip">Flow State</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>System > Pillar III > Operational</p>
+    </footer>
+
+</body>
+</html>

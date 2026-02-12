@@ -25,6 +25,9 @@
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-out forwards',
                         'float': 'float 6s ease-in-out infinite',
+                        'pulse-rose': 'pulseRose 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pulse-gold': 'pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pulse-sky': 'pulseSky 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -34,7 +37,10 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
-                        }
+                        },
+                        pulseRose: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.5' } },
+                        pulseGold: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.5' } },
+                        pulseSky: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.5' } }
                     }
                 }
             }
@@ -87,25 +93,29 @@
             line-height: 1;
             color: rgba(255,255,255,0.1);
         }
-        /* Custom Checkbox Logic */
+        
+        /* --- Monthly Themes --- */
         .check-item { display: flex; align-items: start; gap: 12px; padding: 8px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); cursor: pointer; }
         .check-item:last-child { border-bottom: none; }
-        .check-box-custom { width: 16px; height: 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; flex-shrink: 0; margin-top: 3px; transition: all 0.2s; }
         
-        /* Rose Theme (Month 4) */
-        .card-rose { border-top: 2px solid rgba(244, 63, 94, 0.5); }
-        .card-rose:hover { box-shadow: 0 20px 50px -10px rgba(244, 63, 94, 0.15); border-color: #f43f5e; }
-        .card-rose .check-box-custom.checked { background: #f43f5e; border-color: #f43f5e; box-shadow: 0 0 10px #f43f5e; }
-        
-        /* Gold Theme (Month 5) */
-        .card-gold { border-top: 2px solid rgba(251, 191, 36, 0.5); }
-        .card-gold:hover { box-shadow: 0 20px 50px -10px rgba(251, 191, 36, 0.15); border-color: #fbbf24; }
-        .card-gold .check-box-custom.checked { background: #fbbf24; border-color: #fbbf24; box-shadow: 0 0 10px #fbbf24; }
+        /* Rose (Month 4) */
+        .glass-rose { background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); backdrop-filter: blur(12px); transition: all 0.4s ease; }
+        .glass-rose:hover { border-color: rgba(244, 63, 94, 0.6); transform: translateY(-5px); box-shadow: 0 20px 50px -10px rgba(244, 63, 94, 0.15); }
+        .check-box-rose { width: 16px; height: 16px; border: 1px solid #f43f5e; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+        .check-box-rose.checked { background: #f43f5e; box-shadow: 0 0 10px #f43f5e; }
 
-        /* Sky Theme (Month 6) */
-        .card-sky { border-top: 2px solid rgba(56, 189, 248, 0.5); }
-        .card-sky:hover { box-shadow: 0 20px 50px -10px rgba(56, 189, 248, 0.15); border-color: #38bdf8; }
-        .card-sky .check-box-custom.checked { background: #38bdf8; border-color: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+        /* Gold (Month 5) */
+        .glass-gold { background: rgba(251, 191, 36, 0.05); border: 1px solid rgba(251, 191, 36, 0.2); backdrop-filter: blur(12px); transition: all 0.4s ease; }
+        .glass-gold:hover { border-color: rgba(251, 191, 36, 0.6); transform: translateY(-5px); box-shadow: 0 20px 50px -10px rgba(251, 191, 36, 0.15); }
+        .check-box-gold { width: 16px; height: 16px; border: 1px solid #fbbf24; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+        .check-box-gold.checked { background: #fbbf24; box-shadow: 0 0 10px #fbbf24; }
+
+        /* Sky (Month 6) */
+        .glass-sky { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); backdrop-filter: blur(12px); transition: all 0.4s ease; }
+        .glass-sky:hover { border-color: rgba(56, 189, 248, 0.6); transform: translateY(-5px); box-shadow: 0 20px 50px -10px rgba(56, 189, 248, 0.15); }
+        .check-box-sky { width: 16px; height: 16px; border: 1px solid #38bdf8; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+        .check-box-sky.checked { background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+
     </style>
 </head>
 <body class="relative min-h-screen pb-20">
@@ -227,8 +237,10 @@
 
             <div class="space-y-12">
                 
-                <div class="glass card-rose p-8 rounded-2xl relative overflow-hidden group">
+                <div class="glass-rose p-8 rounded-2xl relative overflow-hidden group">
                     <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-rose-500/5 pointer-events-none group-hover:text-rose-500/10 transition-colors">9</div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-rose/0 via-rose/10 to-rose/0 rounded-3xl blur-xl opacity-30 animate-pulse-rose"></div>
+                    
                     <div class="grid md:grid-cols-2 gap-10 relative z-10">
                         <div>
                             <div class="mb-4 inline-flex items-center gap-2">
@@ -237,72 +249,84 @@
                             </div>
                             <h3 class="text-3xl font-serif italic text-white mb-4">Closure & Release</h3>
                             <p class="text-sm text-secondary leading-relaxed mb-6">
-                                Tháng của sự hoàn tất, dọn dẹp và kết thúc các chu kỳ cũ. Đây là lúc gói ghém lại đời sinh viên để bước sang trang mới.
+                                Tháng của sự hoàn tất (Số 9). Buông bỏ những gì không còn phục vụ cho hành trình mới để nhẹ gánh vươn xa.
                             </p>
                             <div class="p-4 bg-black/20 rounded-xl border border-rose-500/10">
-                                <span class="text-[10px] uppercase text-rose-400/80 tracking-widest block mb-2">Key Vibe</span>
-                                <p class="text-white text-sm font-medium">"Buông bỏ cái cũ để đón cái mới. Hoàn thành xuất sắc Project II."</p>
+                                <span class="text-[10px] uppercase text-rose-400/80 tracking-widest block mb-2">Key Mindset</span>
+                                <p class="text-white text-sm font-medium">"Kết thúc trọn vẹn để khởi đầu rực rỡ. Dọn dẹp cả Digital & Mental space."</p>
                             </div>
                         </div>
                         <div>
                             <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
                             <div class="space-y-1">
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors">Hoàn thành xong môn Dự án II (Target A+).</span>
+                                    <div class="check-box-rose" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors"><b>[Trí]</b> Hoàn thành & Bảo vệ Project II (A+).</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors">Dọn dẹp Laptop/Driver (Digital Clean).</span>
+                                    <div class="check-box-rose" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors"><b>[Tâm]</b> Digital Detox: Clean Laptop & Drive.</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors">Tổng kết tài chính/mục tiêu Quý 1.</span>
+                                    <div class="check-box-rose" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors"><b>[Tiền]</b> Tổng kết tài chính Quý 1 & Lì xì.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-rose" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-rose-400 transition-colors"><b>[Thân]</b> Giữ vững 63kg & Skincare Routine.</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass card-gold p-8 rounded-2xl relative overflow-hidden group">
+                <div class="glass-gold p-8 rounded-2xl relative overflow-hidden group">
                     <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-amber-500/5 pointer-events-none group-hover:text-amber-500/10 transition-colors">1</div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 rounded-3xl blur-xl opacity-30 animate-pulse-gold"></div>
+
                     <div class="grid md:grid-cols-2 gap-10 relative z-10">
                         <div>
                             <div class="mb-4 inline-flex items-center gap-2">
                                 <span class="text-xs font-bold uppercase tracking-widest text-amber-400">May</span>
                                 <span class="h-[1px] w-8 bg-amber-500/30"></span>
                             </div>
-                            <h3 class="text-3xl font-serif italic text-white mb-4">New Chapter</h3>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">New Beginnings</h3>
                             <p class="text-sm text-secondary leading-relaxed mb-6">
-                                Tháng của những hạt giống mới, sự độc lập và tiên phong. Chính thức bước chân vào môi trường doanh nghiệp.
+                                Tháng khởi đầu (Số 1). Những bước chân đầu tiên vào thế giới chuyên nghiệp. Sự độc lập và tiên phong.
                             </p>
                             <div class="p-4 bg-black/20 rounded-xl border border-amber-500/10">
-                                <span class="text-[10px] uppercase text-amber-400/80 tracking-widest block mb-2">Key Vibe</span>
-                                <p class="text-white text-sm font-medium">"Khởi đầu rực rỡ. Ấn tượng đầu tiên tại nơi làm việc."</p>
+                                <span class="text-[10px] uppercase text-amber-400/80 tracking-widest block mb-2">Key Mindset</span>
+                                <p class="text-white text-sm font-medium">"Ấn tượng đầu tiên là quan trọng nhất. Chuyên nghiệp từ ngày Day 1."</p>
                             </div>
                         </div>
                         <div>
                             <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
                             <div class="space-y-1">
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors">First Day at Work (Onboarding).</span>
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors"><b>[Nghiệp]</b> Onboarding Internship (Target A+).</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors">Launch Portfolio V2 Public.</span>
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors"><b>[Nghiệp]</b> Launch Portfolio V2 Public.</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors">Thiết lập Routine đi làm (Sáng/Tối).</span>
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors"><b>[Thân]</b> Thiết lập Routine đi làm (Sáng/Tối).</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-amber-400 transition-colors"><b>[Trí]</b> Khởi nghiệp Course (Target A+).</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass card-sky p-8 rounded-2xl relative overflow-hidden group">
+                <div class="glass-sky p-8 rounded-2xl relative overflow-hidden group">
                     <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-sky-500/5 pointer-events-none group-hover:text-sky-500/10 transition-colors">2</div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-sky/0 via-sky/10 to-sky/0 rounded-3xl blur-xl opacity-30 animate-pulse-sky"></div>
+
                     <div class="grid md:grid-cols-2 gap-10 relative z-10">
                         <div>
                             <div class="mb-4 inline-flex items-center gap-2">
@@ -311,47 +335,35 @@
                             </div>
                             <h3 class="text-3xl font-serif italic text-white mb-4">Connection & Balance</h3>
                             <p class="text-sm text-secondary leading-relaxed mb-6">
-                                Tháng của sự hợp tác, trực giác và các mối quan hệ. Chuẩn bị diện mạo hoàn hảo cho lễ tốt nghiệp.
+                                Tháng của sự kết nối và cân bằng (Số 2). Lắng nghe, quan sát và chuẩn bị tỏa sáng.
                             </p>
                             <div class="p-4 bg-black/20 rounded-xl border border-sky-500/10">
-                                <span class="text-[10px] uppercase text-sky-400/80 tracking-widest block mb-2">Key Vibe</span>
-                                <p class="text-white text-sm font-medium">"Lắng nghe, quan sát và hoàn thành nốt kì thi cuối cùng thời đại học."</p>
+                                <span class="text-[10px] uppercase text-sky-400/80 tracking-widest block mb-2">Key Mindset</span>
+                                <p class="text-white text-sm font-medium">"Học cách lắng nghe để thấu hiểu. Chuẩn bị diện mạo hoàn hảo cho lễ tốt nghiệp."</p>
                             </div>
                         </div>
                         <div>
                             <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
                             <div class="space-y-1">
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Thuê/Học Makeup (Lens, Nền) mỏng mịn tự nhiên.</span>
+                                    <div class="check-box-sky" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors"><b>[Thân]</b> Thuê/Học Makeup (Lens, Nền mỏng mịn).</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Dự án II A+.</span>
+                                    <div class="check-box-sky" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors"><b>[Nghiệp]</b> Networking Coffee (3 buổi).</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Thực tập A+.</span>
+                                    <div class="check-box-sky" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors"><b>[Tâm]</b> Rèn EQ, Lắng nghe & Thiền.</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Khởi nghiệp A+.</span>
+                                    <div class="check-box-sky" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors"><b>[Trí]</b> Blockchain Course (Target A).</span>
                                 </label>
                                 <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Blockchain A.</span>
-                                </label>
-                                <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Vượt qua xuất sắc Pickeball & Đá bóng.</span>
-                                </label>
-                                <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Mở rộng mối quan hệ.</span>
-                                </label>
-                                <label class="check-item group/item">
-                                    <div class="check-box-custom" onclick="this.classList.toggle('checked')"></div>
-                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors">Rèn EQ, Học cách lắng nghe, giải quyết xung đột và thiền.</span>
+                                    <div class="check-box-sky" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-sky-400 transition-colors"><b>[Thân]</b> Pickleball & Football Excellence.</span>
                                 </label>
                             </div>
                         </div>

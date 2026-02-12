@@ -14,7 +14,8 @@
                         primary: '#f8fafc', 
                         secondary: '#94a3b8', 
                         accent: '#22d3ee', /* Cyan 400 */
-                        gold: '#fbbf24', /* Amber 400 - For March */
+                        violet: '#a78bfa', /* Violet 400 - For Feb */
+                        gold: '#fbbf24',   /* Amber 400 - For March */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -24,6 +25,7 @@
                         'fade-in': 'fadeIn 0.8s ease-out forwards',
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-gold': 'pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pulse-violet': 'pulseViolet 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -35,6 +37,10 @@
                             '50%': { transform: 'translateY(-10px)' },
                         },
                         pulseGold: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' },
+                        },
+                        pulseViolet: {
                             '0%, 100%': { opacity: '1' },
                             '50%': { opacity: '0.5' },
                         }
@@ -58,6 +64,22 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         }
+        
+        /* Feb Style */
+        .glass-violet {
+            background: rgba(167, 139, 250, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.4s ease;
+        }
+        .glass-violet:hover {
+            background: rgba(167, 139, 250, 0.1);
+            border-color: rgba(167, 139, 250, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px -10px rgba(167, 139, 250, 0.15);
+        }
+
+        /* March Style */
         .glass-gold {
             background: rgba(251, 191, 36, 0.05);
             backdrop-filter: blur(12px);
@@ -70,6 +92,7 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 50px -10px rgba(251, 191, 36, 0.15);
         }
+
         .micro-chip {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -87,26 +110,24 @@
             color: #22d3ee;
             background: rgba(34, 211, 238, 0.05);
         }
-        /* Custom Checkbox for March */
+
+        /* Checkbox Logic */
         .check-item {
             display: flex;
-            align-items: center;
+            align-items: start;
             gap: 12px;
             padding: 8px 0;
             border-bottom: 1px dashed rgba(255,255,255,0.1);
-        }
-        .check-item:last-child { border-bottom: none; }
-        .check-box-gold {
-            width: 16px;
-            height: 16px;
-            border: 1px solid #fbbf24;
-            border-radius: 4px;
             cursor: pointer;
         }
-        .check-box-gold.checked {
-            background: #fbbf24;
-            box-shadow: 0 0 10px #fbbf24;
-        }
+        .check-item:last-child { border-bottom: none; }
+        
+        .check-box-gold { width: 16px; height: 16px; border: 1px solid #fbbf24; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+        .check-box-gold.checked { background: #fbbf24; box-shadow: 0 0 10px #fbbf24; }
+
+        .check-box-violet { width: 16px; height: 16px; border: 1px solid #a78bfa; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+        .check-box-violet.checked { background: #a78bfa; box-shadow: 0 0 10px #a78bfa; }
+
         .section-header {
             display: flex;
             align-items: flex-end;
@@ -133,7 +154,7 @@
 
     <nav class="fixed w-full top-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="/index.html" class="flex items-center gap-3 group">
+            <a href="index.html" class="flex items-center gap-3 group">
                 <span class="text-secondary group-hover:text-accent transition-colors">←</span>
                 <span class="text-[10px] tracking-[0.2em] text-secondary uppercase group-hover:text-white transition-colors">Back to Roadmap</span>
             </a>
@@ -266,7 +287,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
                 <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
                     <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
@@ -277,7 +297,6 @@
                         <span class="micro-chip border-blue-500/30 text-blue-400 bg-blue-500/5">Docs Ready</span>
                     </div>
                 </a>
-
                 <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
                     <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
@@ -288,7 +307,6 @@
                         <span class="micro-chip border-purple-500/30 text-purple-400 bg-purple-500/5">Hyper Focus</span>
                     </div>
                 </a>
-
                 <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
                     <div class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
@@ -299,7 +317,6 @@
                         <span class="micro-chip border-emerald-500/30 text-emerald-400 bg-emerald-500/5">Synced</span>
                     </div>
                 </a>
-
                 <a href="#" class="glass p-6 rounded-xl flex items-center gap-5 group hover:bg-white/5 border border-dashed border-white/10 hover:border-accent">
                     <div class="p-3 bg-rose-500/10 rounded-lg text-rose-400 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
@@ -310,82 +327,125 @@
                         <span class="micro-chip border-rose-500/30 text-rose-400 bg-rose-500/5">Glow Up</span>
                     </div>
                 </a>
-
             </div>
         </section>
 
         <section class="mb-24 animate-fade-in relative" style="animation-delay: 0.8s;">
-            <div class="absolute -inset-1 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 rounded-3xl blur-xl opacity-30 animate-pulse-gold"></div>
-            
-            <div class="section-header border-gold/20">
-                <span class="section-number text-gold/30">04</span>
+            <div class="section-header">
+                <span class="section-number">04</span>
                 <div>
-                    <h2 class="text-xl font-bold text-gold tracking-wider drop-shadow-md">MARCH FOCUS</h2>
-                    <p class="text-[10px] text-gold/60 uppercase tracking-widest">Number 8: Power & Manifestation</p>
+                    <h2 class="text-xl font-bold text-white tracking-wider">MONTHLY FOCUS</h2>
+                    <p class="text-[10px] text-secondary uppercase tracking-widest">Execute & Manifest</p>
                 </div>
             </div>
 
-            <div class="glass-gold p-8 rounded-2xl relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 text-9xl font-serif font-bold text-gold/5 pointer-events-none">8</div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div>
-                        <h3 class="text-2xl font-serif italic text-white mb-4">The Manifestation Month</h3>
-                        <p class="text-sm text-secondary leading-relaxed mb-6">
-                            Tháng của <strong class="text-gold">tiền bạc, sự nghiệp</strong> và kết quả hữu hình. 
-                            Thời điểm "vàng" để chốt deal lương hoặc nhận offer thực tập BA tốt nhất.
-                        </p>
-                        <div class="p-4 bg-black/20 rounded-xl border border-gold/10">
-                            <span class="text-[10px] uppercase text-gold/80 tracking-widest block mb-2">Core Mindset</span>
-                            <p class="text-white text-sm font-medium">"Rải CV và phỏng vấn với tâm thế của một người có giá trị."</p>
+            <div class="space-y-12">
+                
+                <div class="glass-violet p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-violet-500/5 pointer-events-none group-hover:text-violet-500/10 transition-colors">7</div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-violet/0 via-violet/10 to-violet/0 rounded-3xl blur-xl opacity-30 animate-pulse-violet"></div>
+                    
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-violet-400">February</span>
+                                <span class="h-[1px] w-8 bg-violet-500/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Reflection & Setup</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng cá nhân số 7. Tĩnh lặng để thiết lập quỹ đạo và hoàn thiện "vũ khí" trước khi ra trận.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-violet-500/10">
+                                <span class="text-[10px] uppercase text-violet-400/80 tracking-widest block mb-2">Key Mindset</span>
+                                <p class="text-white text-sm font-medium">"Chuẩn bị kỹ lưỡng là 90% của chiến thắng. Dứt điểm Aroma Spa."</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">March Actions</h4>
-                        <div class="space-y-1">
-                            <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Hoàn thiện CV & Portfolio bản Final.</span>
-                            </label>
-                            <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Apply 5-10 công ty Target.</span>
-                            </label>
-                            <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Mock Interview 3 buổi.</span>
-                            </label>
-                            <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Networking: Connect 5 Senior BAs.</span>
-                            </label>
-                            <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Bắt đầu đi thực tập.</span>
-                            </label>
-                             <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Ổn định giấc ngủ sớm 10h15</span>
-                            </label>
-                             <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Biết makeup cơ bản, nền tệp da, mỏng mịn tự nhiên</span>
-                            </label>
-                             <label class="check-item group">
-                                <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
-                                <span class="text-sm text-slate-300 group-hover:text-gold transition-colors">Tăng tạ gym, meal plan ăn uống đủ chất</span>
-                            </label>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-violet" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors"><b>[Trí]</b> Hoàn thiện Tula OS & Deep Work 90m sáng.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-violet" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors"><b>[Nghiệp]</b> Dứt điểm SRS/BRD Aroma Spa (w/ Ryan).</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-violet" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors"><b>[Thân]</b> Setup Gym PPL, Meal plan.</span>
+                                </label>
+                                 <label class="check-item group/item">
+                                    <div class="check-box-violet" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors"><b>[Thân]</b> Eye & Facial exercises mỗi ngày.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-violet" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors"><b>[Tiền]</b> Phân bổ Lì xì (50% Niềng, 30% Đẹp, 20% Học).</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-violet" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-violet-400 transition-colors"><b>[Tâm]</b> Thiền 10 phút trước ngủ.</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="glass-gold p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-10 text-[10rem] font-serif font-bold text-amber-500/5 pointer-events-none group-hover:text-amber-500/10 transition-colors">8</div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 rounded-3xl blur-xl opacity-30 animate-pulse-gold"></div>
+
+                    <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                        <div>
+                            <div class="mb-4 inline-flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-widest text-gold">March</span>
+                                <span class="h-[1px] w-8 bg-gold/30"></span>
+                            </div>
+                            <h3 class="text-3xl font-serif italic text-white mb-4">Power & Manifest</h3>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                Tháng của tiền bạc và sự nghiệp. Thời điểm "vàng" để chốt deal lương hoặc nhận offer thực tập tốt.
+                            </p>
+                            <div class="p-4 bg-black/20 rounded-xl border border-gold/10">
+                                <span class="text-[10px] uppercase text-gold/80 tracking-widest block mb-2">Key Mindset</span>
+                                <p class="text-white text-sm font-medium">"Rải CV và phỏng vấn với tâm thế của một người có giá trị."</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-white/50 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Actions</h4>
+                            <div class="space-y-1">
+                                <label class="check-item group/item">
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-gold transition-colors"><b>[Nghiệp]</b> Rải CV & Phỏng vấn (Dùng ngôn ngữ Cự Môn).</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-gold transition-colors"><b>[Thân]</b> Ổn định quỹ đạo gym - Tăng tạ Gym & Uống Magnesium.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-gold transition-colors"><b>[Thân]</b> Makeup nền mỏng mịn đi phỏng vấn.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-gold transition-colors"><b>[Tâm]</b> Bắt đầu Journaling & Kỹ năng giao tiếp.</span>
+                                </label>
+                                <label class="check-item group/item">
+                                    <div class="check-box-gold" onclick="this.classList.toggle('checked')"></div>
+                                    <span class="text-sm text-slate-300 group-hover/item:text-gold transition-colors"><b>[Trí]</b> Học Soft Skills & Duy trì nhịp Deep Work.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
     <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
-        <p>System > Roadmap > Q1 2026 > March Focus</p>
+        <p>System > Roadmap > Q1 2026</p>
     </footer>
 
 </body>

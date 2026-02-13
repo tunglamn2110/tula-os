@@ -2,6 +2,7 @@
 <html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tula OS | Pillar II: TÂM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,8 +15,14 @@
                         secondary: '#94a3b8', 
                         accent: '#818cf8', /* Indigo 400 - Soul Color */
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
-                    animation: { 'fade-in': 'fadeIn 0.8s ease-out forwards', 'float': 'float 6s ease-in-out infinite' },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite'
+                    },
                     keyframes: {
                         fadeIn: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
                         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
@@ -27,8 +34,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .glass:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(129, 140, 248, 0.3); transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5); }
+        .glass { background: rgba(255, 255, 255, 0.015); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(129, 140, 248, 0.3); transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5); }
         .micro-chip { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.6rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #94a3b8; transition: all 0.3s ease; white-space: nowrap; }
         .glass:hover .micro-chip { border-color: rgba(129, 140, 248, 0.3); color: #818cf8; background: rgba(129, 140, 248, 0.05); }
         .section-header { display: flex; align-items: flex-end; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -52,52 +59,96 @@
     </nav>
 
     <header class="pt-32 pb-16 px-6 text-center animate-fade-in relative z-10">
-        <div class="w-20 h-20 mx-auto mb-6 opacity-60 animate-float">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="w-full h-full text-accent drop-shadow-[0_0_15px_rgba(129,140,248,0.3)]"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path></svg>
+        <div class="w-20 h-20 mx-auto mb-6 opacity-60 animate-float text-accent drop-shadow-[0_0_15px_rgba(129,140,248,0.3)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+            </svg>
         </div>
         <h1 class="text-5xl md:text-7xl font-serif italic mb-3 text-white">Tâm</h1>
         <div class="flex items-center justify-center gap-4 text-[10px] uppercase tracking-[0.3em] text-accent/80">
-            <span>Stoic</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Calm</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Control</span>
+            <span>Introspection</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Resilience</span><span class="w-1 h-1 rounded-full bg-accent"></span><span>Balance</span>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 z-10 relative">
+    <main class="max-w-5xl mx-auto px-6 z-10 relative">
+        
         <section class="mb-24 animate-fade-in" style="animation-delay: 0.2s;">
-            <div class="section-header"><span class="section-number">01</span><div><h2 class="text-xl font-bold text-white tracking-wider">INNER PEACE</h2><p class="text-[10px] text-secondary uppercase tracking-widest">Mental Frameworks</p></div></div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="https://notion.so/YOUR_JOURNAL_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Open</span></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Journaling</h3>
-                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Reflection</span><span class="micro-chip">Gratitude</span><span class="micro-chip">Brain Dump</span></div>
+            <div class="section-header"><span class="section-number">01</span><div><h2 class="text-xl font-bold text-white tracking-wider uppercase">Introspection</h2><p class="text-[10px] text-secondary uppercase tracking-widest">Hệ tư tưởng & La bàn nội tại</p></div></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <a href="https://docs.google.com/document/d/1MjVbs_EKR04YbyPzeQIiTVNSolGyWs00oUpXsw5_etU/edit?usp=drive_link" target="_blank" class="glass p-8 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-accent">
+                    <div class="flex justify-between items-start mb-6 text-slate-500 group-hover:text-accent transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-[10px] uppercase tracking-widest group-hover:text-white">Manifesto ↗</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Life Manifesto</h3>
+                    <p class="text-sm text-secondary font-light leading-relaxed mb-6">Xây dựng hệ miễn dịch tâm hồn thông qua các triết lý sống tối thượng.</p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Stoicism</span><span class="micro-chip">Ikigai</span><span class="micro-chip">Delayed Gratification</span><span class="micro-chip">Psychology</span>
+                    </div>
                 </a>
-                <a href="https://drive.google.com/drive/u/0/folders/YOUR_STOIC_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Drive</span></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Stoic Study</h3>
-                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Control</span><span class="micro-chip">Marcus Aurelius</span><span class="micro-chip">Acceptance</span></div>
+
+                <a href="https://docs.google.com/document/d/11FnrxiHirI96-EYWJcqS8uI1nBeOH0BZrumQ3Loiozk/edit?usp=drive_link" target="_blank" class="glass p-8 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-fuchsia-400">
+                    <div class="flex justify-between items-start mb-6 text-slate-500 group-hover:text-fuchsia-400 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.512a2 2 0 011.553-1.948L9 2l1 2 2-2 1 2 5.447-2.724A2 2 0 0121 4.512v9.976a2 2 0 01-1.553 1.948L15 19l-1-2-2 2-1-2-1 2-1-2z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-widest group-hover:text-white">Drive ↗</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Inner Compass</h3>
+                    <p class="text-sm text-secondary font-light leading-relaxed mb-6">Đọc vị năng lượng bản thân để thuận theo dòng chảy của vũ trụ.</p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Chiêm Tinh</span><span class="micro-chip">Tử Vi</span><span class="micro-chip">Năm Số 5</span><span class="micro-chip">MBTI</span>
+                    </div>
                 </a>
-                <a href="#" class="glass p-6 rounded-xl group flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">System</span></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Meditation</h3>
-                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Breath work</span><span class="micro-chip">10 Mins/Day</span></div>
+
+                <a href="https://docs.google.com/document/d/1O6nn7hVW3pMJA0Tl2lmS44ipPgfh4-LL5qjWPoxnxhk/edit?usp=drive_link" target="_blank" class="glass p-8 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-fuchsia-400">
+                    <div class="flex justify-between items-start mb-6 text-slate-500 group-hover:text-fuchsia-400 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.512a2 2 0 011.553-1.948L9 2l1 2 2-2 1 2 5.447-2.724A2 2 0 0121 4.512v9.976a2 2 0 01-1.553 1.948L15 19l-1-2-2 2-1-2-1 2-1-2z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-widest group-hover:text-white">Drive ↗</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mindset Psychology</h3>
+                    <p class="text-sm text-secondary font-light leading-relaxed mb-6">Tâm lý học con người.</p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">FOMO</span><span class="micro-chip">Thinking Fast & Flow</span><span class="micro-chip">Năm Số 5</span><span class="micro-chip">MBTI</span>
+                    </div>
                 </a>
             </div>
         </section>
 
         <section class="mb-24 animate-fade-in" style="animation-delay: 0.4s;">
-            <div class="section-header"><span class="section-number">02</span><div><h2 class="text-xl font-bold text-white tracking-wider">CONNECTION</h2><p class="text-[10px] text-secondary uppercase tracking-widest">Social & Network</p></div></div>
+            <div class="section-header"><span class="section-number">02</span><div><h2 class="text-xl font-bold text-white tracking-wider uppercase">Restoration</h2><p class="text-[10px] text-secondary uppercase tracking-widest">Hồi phục & Tương tác xã hội</p></div></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="#" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-accent/50">
-                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Active</span></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Relationships</h3>
-                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">Family</span><span class="micro-chip">Mentor Ryan</span><span class="micro-chip">Close Circle</span></div>
+                
+                <a href="https://www.notion.so/TULA-S-JOURNALING-2daff1efec95803d96f8c2e56cd29a3a?source=copy_link" target="_blank" class="glass p-8 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-emerald-400">
+                    <div class="flex justify-between items-start mb-6 text-slate-500 group-hover:text-emerald-400 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-widest group-hover:text-white">Notion ↗</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Inner Peace</h3>
+                    <p class="text-sm text-secondary font-light leading-relaxed mb-6">Dọn dẹp "rác" tâm trí và tái tạo dopamine lành mạnh mỗi ngày.</p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">Journaling</span><span class="micro-chip">Meditation</span><span class="micro-chip">Detox</span><span class="micro-chip">Reflection</span>
+                    </div>
                 </a>
-                <a href="#" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-red-400/50">
-                    <div class="flex justify-between items-start mb-6"><svg class="w-6 h-6 text-slate-500 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg><span class="text-[10px] uppercase text-slate-600 group-hover:text-white">Block</span></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Detox & Boundaries</h3>
-                    <div class="mt-auto flex flex-wrap gap-2"><span class="micro-chip">No Envy</span><span class="micro-chip">Limit TikTok</span><span class="micro-chip">Focus on Self</span></div>
+
+                <a href="#" class="glass p-8 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-amber-400">
+                    <div class="flex justify-between items-start mb-6 text-slate-500 group-hover:text-amber-400 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="text-[10px] uppercase tracking-widest group-hover:text-white">Active</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Connection</h3>
+                    <p class="text-sm text-secondary font-light leading-relaxed mb-6">Mở rộng vòng lặp xã hội với EQ sắc bén và sự thấu cảm sâu sắc.</p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="micro-chip">EQ Mastery</span><span class="micro-chip">Networking</span><span class="micro-chip">Boundaries</span><span class="micro-chip">Empathy</span>
+                    </div>
                 </a>
             </div>
         </section>
+
     </main>
+
+    <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
+        <p>Soul > Pillars > Introspection</p>
+    </footer>
+
 </body>
 </html>

@@ -238,18 +238,18 @@
                     </div>
                 </a>
 
-                <a href="https://drive.google.com/drive/u/0/folders/YOUR_SLEEP_LINK" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-indigo-500/50">
-                    <div class="flex justify-between items-start mb-6">
-                        <svg class="w-6 h-6 text-slate-500 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">Open</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-4">Sleep</h3>
-                    <div class="mt-auto flex flex-wrap gap-2">
-                        <span class="micro-chip">22:00 Rule</span>
-                        <span class="micro-chip">Circadian</span>
-                        <span class="micro-chip">Rest</span>
-                    </div>
-                </a>
+                <div onclick="toggleSleepModal(true)" class="cursor-pointer glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-indigo-500/50 transition-all duration-300">
+    <div class="flex justify-between items-start mb-6">
+        <svg class="w-6 h-6 text-slate-500 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <span class="text-[10px] uppercase tracking-wider text-slate-600 group-hover:text-white transition-colors">View Detail</span>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-4">Sleep</h3>
+    <div class="mt-auto flex flex-wrap gap-2">
+        <span class="micro-chip">22:00 Rule</span>
+        <span class="micro-chip">Circadian</span>
+        <span class="micro-chip">Rest</span>
+    </div>
+</div>
 
                 <a href="https://docs.google.com/spreadsheets/d/1cOd1z4cTEvzJETGod5yI6lBP-2MHiqHaft-PKlOdHpc/edit?gid=703678214#gid=703678214" target="_blank" class="glass p-6 rounded-xl group flex flex-col h-full border-l-2 border-transparent hover:border-cyan-500/50">
                     <div class="flex justify-between items-start mb-6">
@@ -274,6 +274,106 @@
     <footer class="text-center py-8 text-slate-700 text-[10px] uppercase tracking-widest border-t border-white/5">
         <p>System v3.0 > Pillar I Status: Active</p>
     </footer>
+<div id="sleep-modal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    
+    <div onclick="toggleSleepModal(false)" class="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"></div>
 
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-[#0f172a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col transform transition-all scale-95 duration-300" id="modal-content">
+        
+        <div class="flex justify-between items-center p-6 border-b border-white/5 bg-white/5 backdrop-blur-md sticky top-0 z-10">
+            <div>
+                <h3 class="text-xl font-serif italic text-white">Sleep Architecture</h3>
+                <p class="text-[10px] uppercase tracking-widest text-indigo-400">Recovery System</p>
+            </div>
+            <button onclick="toggleSleepModal(false)" class="text-slate-500 hover:text-white transition-colors p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <div class="p-8 overflow-y-auto custom-scrollbar space-y-8">
+            
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-indigo-400 text-xs font-bold border border-indigo-400/30 px-2 py-0.5 rounded">PHASE 1</span>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Wind-down Routine (9:00 PM)</h4>
+                </div>
+                <div class="space-y-3 pl-2 border-l border-white/10 ml-1">
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        + Ngưng sử dụng thiết bị điện tử (Blue light block).<br>
+                        + Đọc sách giấy hoặc Kindel (Non-fiction).<br>
+                        + Uống Magnesium Glycinate.<br>
+                        + Thiền 10 phút (Focus breathing).
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-indigo-400 text-xs font-bold border border-indigo-400/30 px-2 py-0.5 rounded">PHASE 2</span>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Environment Setup</h4>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/5 p-4 rounded-lg border border-white/5">
+                        <span class="text-xs text-slate-500 block mb-1">Temperature</span>
+                        <span class="text-white font-mono">20°C - 24°C</span>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-lg border border-white/5">
+                        <span class="text-xs text-slate-500 block mb-1">Lighting</span>
+                        <span class="text-white font-mono">Pitch Black</span>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-lg border border-white/5 col-span-2">
+                        <span class="text-xs text-slate-500 block mb-1">Audio</span>
+                        <span class="text-white font-mono">White Noise / Silence</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-indigo-400 text-xs font-bold border border-indigo-400/30 px-2 py-0.5 rounded">PHASE 3</span>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Morning Protocol</h4>
+                </div>
+                <ul class="list-disc list-inside text-sm text-slate-400 space-y-2 marker:text-indigo-500">
+                    <li>Tiếp xúc ánh sáng mặt trời ngay khi dậy (View sun low angle).</li>
+                    <li>Uống 500ml nước + muối hồng.</li>
+                    <li>Trì hoãn Caffeine 90 phút sau khi dậy.</li>
+                </ul>
+            </div>
+
+             <div class="bg-indigo-900/10 border border-indigo-500/20 p-4 rounded-lg">
+                <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">System Note</h4>
+                <p class="text-xs text-slate-300 italic">
+                    "Giấc ngủ là nền tảng của sự hồi phục Mental & Muscle. Không trade giấc ngủ lấy thời gian làm việc vô nghĩa."
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function toggleSleepModal(show) {
+        const modal = document.getElementById('sleep-modal');
+        const content = document.getElementById('modal-content');
+        
+        if (show) {
+            // Hiện Modal
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            // Hiệu ứng zoom in nhẹ cho content
+            setTimeout(() => {
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+            // Khóa cuộn trang chính
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Ẩn Modal
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            // Mở cuộn trang chính
+            document.body.style.overflow = 'auto';
+        }
+    }
+</script>
 </body>
 </html>

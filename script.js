@@ -1,42 +1,39 @@
-// Khai báo thông tin kết nối
+
+const _supabaseKey = 'sb_publishable_rXTkn-Z7tWXFMGS1ZIkJ6w_EBb5WWbV';
 const _supabaseUrl = 'https://aswhvxuznjoibotxjyis.supabase.co';
 const _supabaseKey = 'sb_publishable_rXTkn-Z7tWXFMGS1ZIkJ6w_EBb5WWbV';
 const supabase = supabase.createClient(_supabaseUrl, _supabaseKey);
 
-async function initRoadmap() {
-    // 1. Lấy toàn bộ trạng thái từ Supabase về
-    const { data: tasks, error } = await supabase.from('roadmap_tasks').select('*');
-    if (error) return console.error('Lỗi tải data:', error);
+// Hàm này sẽ chạy ngay khi trình duyệt đọc đến nó
+console.log("Tula OS: Script đang khởi động...");
 
-    // 2. Render trạng thái lên giao diện
-    tasks.forEach(task => {
-        const el = document.querySelector(`[data-task-id="${task.task_id}"]`);
-        if (el && task.is_completed) {
-            el.classList.add('checked');
-        }
-    });
+async function init() {
+    const boxes = document.querySelectorAll('[data-task-id]');
+    console.log("Tìm thấy số lượng checkbox là:", boxes.length);
 
-    // 3. Lắng nghe sự kiện click cho tất cả checkbox
-    const allCheckBoxes = document.querySelectorAll('[data-task-id]');
-    allCheckBoxes.forEach(box => {
-        box.addEventListener('click', async () => {
-            // Hiệu ứng tích/bỏ tích trên UI
+    if (boxes.length === 0) {
+        console.error("LỖI: Không tìm thấy ô nào có data-task-id. Kiểm tra lại HTML!");
+    }
+
+    boxes.forEach(box => {
+        // Gắn sự kiện click thủ công
+        box.onclick = async () => {
+            console.log("Bạn vừa bấm vào:", box.getAttribute('data-task-id'));
+            
+            // 1. Đổi màu UI trước cho sướng mắt
             const isChecked = box.classList.toggle('checked');
-            const taskId = box.getAttribute('data-task-id');
 
-            // Lưu trạng thái mới lên Supabase
-            const { error: updateError } = await supabase
+            // 2. Lưu lên Database sau
+            const { error } = await supabase
                 .from('roadmap_tasks')
                 .update({ is_completed: isChecked })
-                .eq('task_id', taskId);
+                .eq('task_id', box.getAttribute('data-task-id'));
 
-            if (updateError) {
-                console.error('Lỗi lưu:', updateError);
-                box.classList.toggle('checked'); // Trả lại trạng thái cũ nếu lỗi
-            }
-        });
+            if (error) console.error("Lưu thất bại:", error.message);
+            else console.log("Lưu thành công lên mây!");
+        };
     });
 }
 
-// Chạy khi trang web load xong
-document.addEventListener('DOMContentLoaded', initRoadmap);
+// Đợi 1 chút cho HTML load xong hẳn rồi mới chạy
+setTimeout(init, 500);

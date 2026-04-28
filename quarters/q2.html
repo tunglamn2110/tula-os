@@ -504,15 +504,15 @@ function updateMonthScores() {
         if (!statusEl) return;
 
         if (score === total && total > 0) {
-            statusEl.textContent = "Completed";
+            statusEl.textContent = "Hoàn thành trọn vẹn. Bạn đã đóng chu kỳ rất sạch và có kiểm soát";
         } else if (score >= Math.ceil(total * 0.75)) {
-            statusEl.textContent = "Strong progress";
+            statusEl.textContent = "Tiến độ rất tốt. Chỉ còn một vài điểm cần chốt để hoàn tất trọn vẹn";
         } else if (score >= Math.ceil(total * 0.5)) {
-            statusEl.textContent = "Stable progress";
+            statusEl.textContent = "Đang đi đúng hướng, nhưng vẫn còn thiếu lực ở một số phần quan trọng";
         } else if (score > 0) {
-            statusEl.textContent = "In progress";
+            statusEl.textContent = "Đã bắt đầu nhưng tiến độ còn thấp. Cần tập trung hơn nếu không muốn trôi qua tháng này";
         } else {
-            statusEl.textContent = "Reset phase";
+            statusEl.textContent = "Chưa có tiến triển đáng kể. Cần reset lại và chọn 1–2 việc quan trọng để bắt đầu ngay";
         }
     });
 }
